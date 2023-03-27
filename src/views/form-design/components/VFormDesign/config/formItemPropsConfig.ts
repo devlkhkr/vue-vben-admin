@@ -23,7 +23,7 @@ export interface IBaseFormItemControlAttrs extends IBaseFormAttrs {
 export const baseItemColumnProps: IBaseFormAttrs[] = [
   {
     name: 'span',
-    label: '栅格数',
+    label: '그리드 수',
     component: 'Slider',
     on: {
       change(value: number) {
@@ -39,7 +39,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
 
   {
     name: 'offset',
-    label: '栅格左侧的间隔格数',
+    label: '그리드 왼쪽 간격 수',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -49,7 +49,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'order',
-    label: '栅格顺序,flex 布局模式下有效',
+    label: '그리드 순서, flex 레이아웃 모드에서 유효',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -59,7 +59,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'pull',
-    label: '栅格向左移动格数',
+    label: '그리드 왼쪽으로 이동',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -69,7 +69,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'push',
-    label: '栅格向右移动格数',
+    label: '그리드 오른쪽으로 이동',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -79,7 +79,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'xs',
-    label: '<576px 响应式栅格',
+    label: '<576px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -89,7 +89,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'sm',
-    label: '≥576px 响应式栅格',
+    label: '≥576px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -99,7 +99,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'md',
-    label: '≥768p 响应式栅格',
+    label: '≥768px 반응형 그리드',
     component: 'Slider',
 
     componentProps: {
@@ -110,7 +110,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'lg',
-    label: '≥992px 响应式栅格',
+    label: '≥992px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -120,7 +120,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'xl',
-    label: '≥1200px 响应式栅格',
+    label: '≥1200px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -130,7 +130,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: 'xxl',
-    label: '≥1600px 响应式栅格',
+    label: '≥1600px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -140,7 +140,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
   },
   {
     name: '≥2000px',
-    label: '≥1600px 响应式栅格',
+    label: '≥2000px 반응형 그리드',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -154,7 +154,7 @@ export const baseItemColumnProps: IBaseFormAttrs[] = [
 export const advanceFormItemColProps: IBaseFormAttrs[] = [
   {
     name: 'labelCol',
-    label: '标签col',
+    label: 'label Col',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -165,7 +165,7 @@ export const advanceFormItemColProps: IBaseFormAttrs[] = [
   },
   {
     name: 'wrapperCol',
-    label: '控件-span',
+    label: 'wrapper Col',
     component: 'Slider',
     componentProps: {
       max: 24,
@@ -175,12 +175,12 @@ export const advanceFormItemColProps: IBaseFormAttrs[] = [
     exclude: ['Grid'],
   },
 ];
-// 控件属性面板的配置项
+// 컨트롤 속성 패널의 구성 항목
 export const baseFormItemProps: IBaseFormAttrs[] = [
   {
-    // 动态的切换控件的类型
+    // 동적으로 컨트롤 유형을 전환합니다.
     name: 'component',
-    label: '控件-FormItem',
+    label: '컨트롤-FormItem',
     component: 'Select',
     componentProps: {
       options: baseComponents
@@ -190,21 +190,21 @@ export const baseFormItemProps: IBaseFormAttrs[] = [
   },
   {
     name: 'label',
-    label: '标签',
+    label: '라벨',
     component: 'Input',
     componentProps: {
       type: 'Input',
-      placeholder: '请输入标签',
+      placeholder: '라벨을 입력하세요',
     },
     exclude: ['Grid'],
   },
   {
     name: 'field',
-    label: '字段标识',
+    label: '필드 식별자',
     component: 'Input',
     componentProps: {
       type: 'InputTextArea',
-      placeholder: '请输入字段标识',
+      placeholder: '필드 식별자를 입력하세요',
     },
     exclude: ['Grid'],
   },
@@ -213,26 +213,25 @@ export const baseFormItemProps: IBaseFormAttrs[] = [
     label: 'helpMessage',
     component: 'Input',
     componentProps: {
-      placeholder: '请输入提示信息',
+      placeholder: '도움말 메시지를 입력하세요',
     },
     exclude: ['Grid'],
   },
 ];
-
 // 控件属性面板的配置项
 export const advanceFormItemProps: IBaseFormAttrs[] = [
   {
     name: 'labelAlign',
-    label: '标签对齐',
+    label: '라벨 정렬',
     component: 'RadioGroup',
     componentProps: {
       options: [
         {
-          label: '靠左',
+          label: '왼쪽',
           value: 'left',
         },
         {
-          label: '靠右',
+          label: '오른쪽',
           value: 'right',
         },
       ],
@@ -242,20 +241,20 @@ export const advanceFormItemProps: IBaseFormAttrs[] = [
 
   {
     name: 'help',
-    label: 'help',
+    label: '도움말',
     component: 'Input',
     componentProps: {
-      placeholder: '请输入提示信息',
+      placeholder: '도움말을 입력하세요',
     },
     exclude: ['Grid'],
   },
   {
     name: 'extra',
-    label: '额外消息',
+    label: '추가 메시지',
     component: 'Input',
     componentProps: {
       type: 'InputTextArea',
-      placeholder: '请输入额外消息',
+      placeholder: '추가 메시지를 입력하세요',
     },
     exclude: ['Grid'],
   },
@@ -265,34 +264,34 @@ export const advanceFormItemProps: IBaseFormAttrs[] = [
     component: 'Input',
     componentProps: {
       type: 'InputTextArea',
-      placeholder: '请输入validateTrigger',
+      placeholder: 'validateTrigger를 입력하세요',
     },
     exclude: ['Grid'],
   },
   {
     name: 'validateStatus',
-    label: '校验状态',
+    label: '검증 상태',
     component: 'RadioGroup',
     componentProps: {
       options: [
         {
-          label: '默认',
+          label: '기본',
           value: '',
         },
         {
-          label: '成功',
+          label: '성공',
           value: 'success',
         },
         {
-          label: '警告',
+          label: '경고',
           value: 'warning',
         },
         {
-          label: '错误',
+          label: '오류',
           value: 'error',
         },
         {
-          label: '校验中',
+          label: '검증 중',
           value: 'validating',
         },
       ],
@@ -304,13 +303,13 @@ export const advanceFormItemProps: IBaseFormAttrs[] = [
 export const baseFormItemControlAttrs: IBaseFormItemControlAttrs[] = [
   {
     name: 'required',
-    label: '必填项',
+    label: '필수 항목',
     component: 'Checkbox',
     exclude: ['alert'],
   },
   {
     name: 'hidden',
-    label: '隐藏',
+    label: '숨김',
     component: 'Checkbox',
     exclude: ['alert'],
   },
@@ -318,32 +317,32 @@ export const baseFormItemControlAttrs: IBaseFormItemControlAttrs[] = [
     name: 'hiddenLabel',
     component: 'Checkbox',
     exclude: ['Grid'],
-    label: '隐藏标签',
+    label: '라벨 숨기기',
   },
   {
     name: 'colon',
-    label: 'label后面显示冒号',
+    label: '라벨 뒤에 콜론 표시',
     component: 'Checkbox',
     componentProps: {},
     exclude: ['Grid'],
   },
   {
     name: 'hasFeedback',
-    label: '输入反馈',
+    label: '입력 피드백',
     component: 'Checkbox',
     componentProps: {},
     includes: ['Input'],
   },
   {
     name: 'autoLink',
-    label: '自动关联',
+    label: '자동 연결',
     component: 'Checkbox',
     componentProps: {},
     includes: ['Input'],
   },
   {
     name: 'validateFirst',
-    label: '检验证错误停止',
+    label: '검증 오류 발생 시 중지',
     component: 'Checkbox',
     componentProps: {},
     includes: ['Input'],

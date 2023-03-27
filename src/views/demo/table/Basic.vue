@@ -1,8 +1,8 @@
 <template>
   <div class="p-4">
     <BasicTable
-      title="基础示例"
-      titleHelpMessage="温馨提醒"
+      title="샘플 테이블"
+      titleHelpMessage="셈플 테이블 도움말"
       :columns="columns"
       :dataSource="data"
       :canResize="canResize"
@@ -15,14 +15,14 @@
     >
       <template #toolbar>
         <a-button type="primary" @click="toggleCanResize">
-          {{ !canResize ? '自适应高度' : '取消自适应' }}
+          {{ !canResize ? '테이블 접기' : '테이블 펼치기' }}
         </a-button>
         <a-button type="primary" @click="toggleBorder">
-          {{ !border ? '显示边框' : '隐藏边框' }}
+          {{ !border ? '테두리 표시' : '테두리 제거' }}
         </a-button>
-        <a-button type="primary" @click="toggleLoading"> 开启loading </a-button>
+        <a-button type="primary" @click="toggleLoading"> 재로드 </a-button>
         <a-button type="primary" @click="toggleStriped">
-          {{ !striped ? '显示斑马纹' : '隐藏斑马纹' }}
+          {{ !striped ? '행 구분색 켜기' : '행 구분색 끄기' }}
         </a-button>
       </template>
     </BasicTable>

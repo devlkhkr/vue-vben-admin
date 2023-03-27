@@ -7,7 +7,7 @@
     <Empty
       class="empty-text"
       v-show="formConfig.schemas.length === 0"
-      description="从左侧选择控件添加"
+      description="왼쪽에서 컴포넌트를 선택하여 추가"
     />
     <Form v-bind="formConfig">
       <div class="draggable-box">

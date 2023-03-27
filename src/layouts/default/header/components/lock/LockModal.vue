@@ -57,7 +57,12 @@
               span: 24,
             },
             component: 'InputPassword',
-            required: true,
+            rules: [
+              {
+                required: true,
+                message: '잠금암호를 입력해주세요',
+              },
+            ],
           },
         ],
       });

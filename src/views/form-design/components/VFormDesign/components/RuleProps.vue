@@ -28,7 +28,7 @@
     </Form>
     <a @click="addRules">
       <Icon icon="ant-design:file-add-outlined" />
-      添加正则
+      정규식 추가
     </a>
   </div>
 </template>

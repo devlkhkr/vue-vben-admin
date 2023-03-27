@@ -11,7 +11,7 @@
       }"
       breakpoint="md"
     >
-      <CollapseContainer title="基础控件">
+      <CollapseContainer title="기본 구성 요소">
         <CollapseItem
           :list="baseComponents"
           :handleListPush="handleListPushDrag"
@@ -19,7 +19,7 @@
           @handle-list-push="handleListPush"
         />
       </CollapseContainer>
-      <CollapseContainer title="自定义控件">
+      <CollapseContainer title="사용자 정의 구성 요소">
         <CollapseItem
           :list="customComponents"
           @add-attrs="handleAddAttrs"
@@ -27,7 +27,7 @@
           @handle-list-push="handleListPush"
         />
       </CollapseContainer>
-      <CollapseContainer title="布局控件">
+      <CollapseContainer title="레이아웃 구성 요소">
         <CollapseItem
           :list="layoutComponents"
           :handleListPush="handleListPushDrag"

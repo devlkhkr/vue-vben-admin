@@ -1,0 +1,16 @@
+export default {
+  syncany: 'SyncAny',
+  group: 'Group',
+  user: 'User',
+  agents: 'Agents',
+  agentsFolder: 'AgentsFolder',
+  serverFolder: 'ServerFolder',
+  schedule: 'Schedule',
+  pendingSys: 'Pending Systems',
+  stat: 'Statistics',
+  webStat: 'Web Statistics',
+  notice: 'Notice',
+  builtIn: 'vben Built In',
+  formDesign: 'Form Design',
+  guide: 'Guide for KR',
+};

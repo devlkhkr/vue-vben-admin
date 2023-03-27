@@ -8,14 +8,14 @@ type BaseFormAttrs = Omit<IBaseFormAttrs, 'tag'>;
 
 export const baseComponentControlAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
   {
-    // 没有disabled属性的控件不能作为form控件
+    // disabled 속성이 없는 컨트롤은 폼 컨트롤로 사용할 수 없습니다.
     name: 'disabled',
-    label: '禁用',
+    label: '비활성화',
   },
   {
-    // 没有disabled属性的控件不能作为form控件
+    // disabled 속성이 없는 컨트롤은 폼 컨트롤로 사용할 수 없습니다.
     name: 'autofocus',
-    label: '自动获取焦点',
+    label: '자동 포커스',
     includes: [
       'Input',
       'Select',
@@ -34,7 +34,7 @@ export const baseComponentControlAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
   },
   {
     name: 'allowClear',
-    label: '可清除',
+    label: '지울 수 있음',
     includes: [
       'Input',
       'Select',
@@ -49,79 +49,79 @@ export const baseComponentControlAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
       'AutoComplete',
     ],
   },
-  { name: 'fullscreen', label: '全屏', includes: ['Calendar'] },
+  { name: 'fullscreen', label: '전체 화면', includes: ['Calendar'] },
   {
     name: 'showSearch',
-    label: '可搜索',
+    label: '검색 가능',
     includes: ['Select', 'TreeSelect', 'Cascader', 'Transfer'],
   },
   {
     name: 'showTime',
-    label: '显示时间',
+    label: '시간 표시',
     includes: ['DatePicker', 'RangePicker', 'MonthPicker'],
   },
   {
     name: 'range',
-    label: '双向滑动',
+    label: '양방향 슬라이더',
     includes: [],
   },
   {
     name: 'allowHalf',
-    label: '允许半选',
+    label: '반 값 허용',
     includes: ['Rate'],
   },
   {
     name: 'multiple',
-    label: '多选',
+    label: '다중 선택',
     includes: ['Select', 'TreeSelect', 'Upload'],
   },
   {
     name: 'directory',
-    label: '文件夹',
+    label: '디렉토리',
     includes: ['Upload'],
   },
   {
     name: 'withCredentials',
-    label: '携带cookie',
+    label: '쿠키 전송',
     includes: ['Upload'],
   },
   {
     name: 'bordered',
-    label: '是否有边框',
+    label: '테두리 여부',
     includes: ['Select', 'Input'],
   },
   {
     name: 'defaultActiveFirstOption',
-    label: '高亮第一个选项',
+    label: '첫 번째 옵션 강조',
     component: 'Checkbox',
     includes: ['Select', 'AutoComplete'],
   },
   {
     name: 'dropdownMatchSelectWidth',
-    label: '下拉菜单和选择器同宽',
+    label: '드롭다운 메뉴와 선택기 너비 동일',
     component: 'Checkbox',
     includes: ['Select', 'TreeSelect', 'AutoComplete'],
   },
 ];
 
-//共用属性
+// 공용 속성
 export const baseComponentCommonAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
   {
     name: 'size',
-    label: '尺寸',
+    label: '크기',
     component: 'RadioGroup',
     componentProps: {
       options: [
         {
-          label: '默认',
+          label: '기본',
           value: 'default',
         },
         {
-          label: '大',
+          label: '크게',
           value: 'large',
         },
         {
-          label: '小',
+          label: '작게',
           value: 'small',
         },
       ],
@@ -130,10 +130,10 @@ export const baseComponentCommonAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
   },
   {
     name: 'placeholder',
-    label: '占位符',
+    label: '플레이스홀더',
     component: 'Input',
     componentProps: {
-      placeholder: '请输入占位符',
+      placeholder: '플레이스홀더를 입력하세요',
     },
     includes: [
       'AutoComplete',
@@ -151,28 +151,28 @@ export const baseComponentCommonAttrs: Omit<IBaseFormAttrs, 'tag'>[] = [
   },
   {
     name: 'style',
-    label: '样式',
+    label: '스타일',
     component: 'Input',
     componentProps: {
-      placeholder: '请输入样式',
+      placeholder: '스타일을 입력하세요',
     },
   },
   {
     name: 'open',
-    label: '一直展开下拉菜单',
+    label: '항상 드롭다운 메뉴 열기',
     component: 'RadioGroup',
     componentProps: {
       options: [
         {
-          label: '默认',
+          label: '기본값',
           value: undefined,
         },
         {
-          label: '是',
+          label: '예',
           value: true,
         },
         {
-          label: '否',
+          label: '아니요',
           value: false,
         },
       ],
@@ -185,7 +185,7 @@ const componentAttrs: IBaseComponentProps = {
   AutoComplete: [
     {
       name: 'backfill',
-      label: '自动回填',
+      label: '자동 채우기',
       component: 'Switch',
       componentProps: {
         span: 8,
@@ -193,20 +193,20 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'defaultOpen',
-      label: '是否默认展开下拉菜单',
+      label: '드롭다운 메뉴 기본 열기',
       component: 'Checkbox',
     },
   ],
   IconPicker: [
     {
       name: 'mode',
-      label: '模式',
+      label: '모드',
       component: 'RadioGroup',
       componentProps: {
         options: [
           { label: 'ICONIFY', value: null },
           { label: 'SVG', value: 'svg' },
-          // { label: '组合', value: 'combobox' },
+          // { label: '콤보박스', value: 'combobox' },
         ],
       },
     },
@@ -216,87 +216,87 @@ const componentAttrs: IBaseComponentProps = {
   Input: [
     {
       name: 'type',
-      label: '类型',
+      label: '유형',
       component: 'Select',
       componentProps: {
         options: [
-          { value: 'text', label: '文本' },
-          { value: 'search', label: '搜索' },
-          { value: 'number', label: '数字' },
-          { value: 'range', label: '数字范围' },
-          { value: 'password', label: '密码' },
-          { value: 'date', label: '日期' },
-          { value: 'datetime-local', label: '日期-无时区' },
-          { value: 'time', label: '时间' },
-          { value: 'month', label: '年月' },
-          { value: 'week', label: '星期' },
-          { value: 'email', label: '邮箱' },
+          { value: 'text', label: '텍스트' },
+          { value: 'search', label: '검색' },
+          { value: 'number', label: '숫자' },
+          { value: 'range', label: '숫자 범위' },
+          { value: 'password', label: '비밀번호' },
+          { value: 'date', label: '날짜' },
+          { value: 'datetime-local', label: '날짜-시간대 없음' },
+          { value: 'time', label: '시간' },
+          { value: 'month', label: '연월' },
+          { value: 'week', label: '요일' },
+          { value: 'email', label: '이메일' },
           { value: 'url', label: 'URL' },
-          { value: 'tel', label: '电话号码' },
-          { value: 'file', label: '文件' },
-          { value: 'button', label: '按钮' },
-          { value: 'submit', label: '提交按钮' },
-          { value: 'reset', label: '重置按钮' },
-          { value: 'radio', label: '单选按钮' },
-          { value: 'checkbox', label: '复选框' },
-          { value: 'color', label: '颜色' },
-          { value: 'image', label: '图像' },
-          { value: 'hidden', label: '隐藏' },
+          { value: 'tel', label: '전화번호' },
+          { value: 'file', label: '파일' },
+          { value: 'button', label: '버튼' },
+          { value: 'submit', label: '제출 버튼' },
+          { value: 'reset', label: '재설정 버튼' },
+          { value: 'radio', label: '라디오 버튼' },
+          { value: 'checkbox', label: '체크박스' },
+          { value: 'color', label: '색상' },
+          { value: 'image', label: '이미지' },
+          { value: 'hidden', label: '숨김' },
         ],
       },
     },
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본 값',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入默认值',
+        placeholder: '기본 값을 입력하세요',
       },
     },
     {
       name: 'prefix',
-      label: '前缀',
+      label: '접두사',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入前缀',
+        placeholder: '접두사를 입력하세요',
       },
     },
     {
       name: 'suffix',
-      label: '后缀',
+      label: '접미사',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入后缀',
+        placeholder: '접미사를 입력하세요',
       },
     },
     {
       name: 'addonBefore',
-      label: '前置标签',
+      label: '전위 라벨',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入前置标签',
+        placeholder: '전위 라벨을 입력하세요',
       },
     },
     {
       name: 'addonAfter',
-      label: '后置标签',
+      label: '후위 라벨',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入后置标签',
+        placeholder: '후위 라벨을 입력하세요',
       },
     },
     {
       name: 'maxLength',
-      label: '最大长度',
+      label: '최대 길이',
       component: 'InputNumber',
       componentProps: {
         type: 'text',
-        placeholder: '请输入最大长度',
+        placeholder: '최대 길이를 입력하세요',
       },
     },
   ],
@@ -304,186 +304,178 @@ const componentAttrs: IBaseComponentProps = {
   InputNumber: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본 값',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入默认值',
+        placeholder: '기본 값을 입력하세요',
       },
     },
     {
       name: 'min',
-      label: '最小值',
+      label: '최소값',
       component: 'InputNumber',
       componentProps: {
         type: 'text',
-        placeholder: '请输入最小值',
+        placeholder: '최소값을 입력하세요',
       },
     },
     {
       name: 'max',
-      label: '最大值',
+      label: '최대값',
       component: 'InputNumber',
       componentProps: {
         type: 'text',
-        placeholder: '请输入最大值',
+        placeholder: '최대값을 입력하세요',
       },
     },
     {
       name: 'precision',
-      label: '数值精度',
+      label: '숫자 정확도',
       component: 'InputNumber',
       componentProps: {
         type: 'text',
-        placeholder: '请输入最大值',
+        placeholder: '숫자 정확도를 입력하세요',
       },
     },
     {
       name: 'step',
-      label: '步长',
+      label: '증감 간격',
       component: 'InputNumber',
       componentProps: {
         type: 'text',
-        placeholder: '请输入步长',
+        placeholder: '증감 간격을 입력하세요',
       },
     },
     {
       name: 'decimalSeparator',
-      label: '小数点',
+      label: '소수점',
       component: 'Input',
-      componentProps: { type: 'text', placeholder: '请输入小数点' },
+      componentProps: { type: 'text', placeholder: '소수점을 입력하세요' },
     },
     {
       name: 'addonBefore',
-      label: '前置标签',
+      label: '앞 라벨',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入前置标签',
+        placeholder: '앞 라벨을 입력하세요',
       },
     },
     {
       name: 'addonAfter',
-      label: '后置标签',
+      label: '뒷 라벨',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入后置标签',
+        placeholder: '뒷 라벨을 입력하세요',
       },
     },
     {
       name: 'controls',
-      label: '是否显示增减按钮',
+      label: '증감 버튼 표시 여부',
       component: 'Checkbox',
     },
     {
       name: 'keyboard',
-      label: '是否启用键盘快捷行为',
+      label: '키보드 단축키 사용 여부',
       component: 'Checkbox',
     },
     {
       name: 'stringMode',
-      label: '字符值模式',
+      label: '문자열 값 모드',
       component: 'Checkbox',
     },
     {
       name: 'bordered',
-      label: '是否有边框',
+      label: '테두리 표시 여부',
       component: 'Checkbox',
     },
   ],
   InputTextArea: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본값',
       component: 'Input',
       componentProps: {
         type: 'text',
-        placeholder: '请输入默认值',
+        placeholder: '기본값을 입력하세요',
       },
     },
     {
       name: 'maxlength',
-      label: '最大长度',
+      label: '최대 길이',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入最大长度',
+        placeholder: '최대 길이를 입력하세요',
       },
     },
     {
       name: 'minlength',
-      label: '最小长度',
+      label: '최소 길이',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入最小长度',
+        placeholder: '최소 길이를 입력하세요',
       },
     },
     {
       name: 'cols',
-      label: '可见列数',
+      label: '가로 길이',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入可见列数',
+        placeholder: '가로 길이를 입력하세요',
         min: 0,
       },
     },
     {
       name: 'rows',
-      label: '可见行数',
+      label: '세로 길이',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入可见行数',
+        placeholder: '세로 길이를 입력하세요',
         min: 0,
       },
     },
     {
-      name: 'minlength',
-      label: '最小长度',
-      component: 'InputNumber',
-      componentProps: {
-        placeholder: '请输入最小长度',
-      },
-    },
-    {
       name: 'autosize',
-      label: '自适应内容高度',
+      label: '내용에 맞게 자동 조정',
       component: 'Checkbox',
     },
     {
       name: 'showCount',
-      label: '是否展示字数',
+      label: '글자 수 표시',
       component: 'Checkbox',
     },
     {
       name: 'readonly',
-      label: '是否只读',
+      label: '읽기 전용',
       component: 'Checkbox',
     },
     {
       name: 'spellcheck',
-      label: '读写检查',
+      label: '맞춤법 검사',
       component: 'Checkbox',
     },
     {
       name: 'autocomplete',
-      label: '是否自动完成',
+      label: '자동 완성',
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '正常', value: null },
-          { label: '开', value: 'on' },
-          { label: '关', value: 'off' },
+          { label: '정상', value: null },
+          { label: '켜기', value: 'on' },
+          { label: '끄기', value: 'off' },
         ],
       },
     },
     {
       name: 'autocorrect',
-      label: '是否自动纠错',
+      label: '자동 수정',
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '正常', value: null },
-          { label: '开', value: 'on' },
-          { label: '关', value: 'off' },
+          { label: '정상', value: null },
+          { label: '켜기', value: 'on' },
+          { label: '끄기', value: 'off' },
         ],
       },
     },
@@ -491,42 +483,42 @@ const componentAttrs: IBaseComponentProps = {
   Select: [
     {
       name: 'mode',
-      label: '选择模式（默认单选）',
+      label: '선택 모드 (기본값은 단일 선택)',
       component: 'RadioGroup',
       componentProps: {
         options: [
-          { label: '单选', value: null },
-          { label: '多选', value: 'multiple' },
-          { label: '标签', value: 'tags' },
-          // { label: '组合', value: 'combobox' },
+          { label: '단일 선택', value: null },
+          { label: '다중 선택', value: 'multiple' },
+          { label: '태그 선택', value: 'tags' },
+          // { label: '콤보박스', value: 'combobox' },
         ],
       },
     },
     {
       name: 'autoClearSearchValue',
-      label: '是否在选中项后清空搜索框',
+      label: '선택 항목 후 검색 상자 비우기',
       component: 'Checkbox',
     },
     {
       name: 'labelInValue',
-      label: '选项的label包装到value中',
+      label: '옵션의 레이블을 값으로 래핑',
       component: 'Checkbox',
     },
     {
       name: 'showArrow',
-      label: '显示下拉小箭头',
+      label: '화살표 표시',
       component: 'Checkbox',
     },
     {
       name: 'defaultOpen',
-      label: '默认展开下拉菜单',
+      label: '기본으로 열려있기',
       component: 'Checkbox',
     },
   ],
   Checkbox: [
     {
       name: 'indeterminate',
-      label: '设置indeterminate状态',
+      label: 'indeterminate 설정',
       component: 'Checkbox',
     },
   ],
@@ -534,15 +526,15 @@ const componentAttrs: IBaseComponentProps = {
   RadioGroup: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본값',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入默认值',
+        placeholder: '기본값을 입력하세요',
       },
     },
     {
       name: 'buttonStyle',
-      label: 'RadioButton的风格样式',
+      label: 'RadioButton 스타일',
       component: 'RadioGroup',
       componentProps: {
         options: [
@@ -559,38 +551,38 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'optionType',
-      label: 'options类型',
+      label: 'options 타입',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '默认',
+            label: '기본',
             value: 'default',
           },
           {
-            label: '按钮',
+            label: '버튼',
             value: 'button',
           },
         ],
-        //根据其它选项的值更新自身控件配置值
-        //compProp当前组件的属性，
-        //configProps，当且组件的所有配置选项
-        //self,当前配置的componentProps属性
-        //返回真值进行更新
+        // 다른 선택 항목의 값을 기반으로 자체 구성 값을 업데이트합니다.
+        // compProp: 현재 구성 요소의 속성,
+        // configProps: 현재 구성 요소의 모든 구성 옵션
+        // self: 현재 구성의 componentProps 속성
+        // 업데이트하려면 참 값을 반환합니다.
         // _propsFunc: (compProp, configProps, self) => {
-        //   console.log("i'm called");
-        //   console.log(compProp, configProps, self);
-        //   if (compProp['buttonStyle'] && compProp['buttonStyle'] == 'outline') {
-        //     if (!self['disabled']) {
-        //       self['disabled'] = true;
-        //       return 1;
-        //     }
-        //   } else {
-        //     if (self['disabled']) {
-        //       self['disabled'] = false;
-        //       return 1;
-        //     }
-        //   }
+        // console.log("i'm called");
+        // console.log(compProp, configProps, self);
+        // if (compProp['buttonStyle'] && compProp['buttonStyle'] == 'outline') {
+        // if (!self['disabled']) {
+        // self['disabled'] = true;
+        // return 1;
+        // }
+        // } else {
+        // if (self['disabled']) {
+        // self['disabled'] = false;
+        // return 1;
+        // }
+        // }
 
         //   // return prop.optionType == 'button';
         // },
@@ -598,20 +590,20 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'size',
-      label: '尺寸',
+      label: '크기',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '默认',
+            label: '기본',
             value: 'default',
           },
           {
-            label: '大',
+            label: '큰',
             value: 'large',
           },
           {
-            label: '小',
+            label: '작은',
             value: 'small',
           },
         ],
@@ -621,7 +613,7 @@ const componentAttrs: IBaseComponentProps = {
   DatePicker: [
     {
       name: 'format',
-      label: '展示格式（format）',
+      label: '표시 형식(format)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM-DD',
@@ -629,7 +621,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'valueFormat',
-      label: '绑定值格式（valueFormat）',
+      label: '바인딩 값 형식(valueFormat)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM-DD',
@@ -639,7 +631,7 @@ const componentAttrs: IBaseComponentProps = {
   RangePicker: [
     {
       name: 'placeholder',
-      label: '占位符',
+      label: '자리 표시자',
       children: [
         {
           name: '',
@@ -655,7 +647,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'format',
-      label: '展示格式（format）',
+      label: '표시 형식(format)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM-DD HH:mm:ss',
@@ -663,7 +655,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'valueFormat',
-      label: '绑定值格式（valueFormat）',
+      label: '값 형식（valueFormat）',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM-DD',
@@ -673,7 +665,7 @@ const componentAttrs: IBaseComponentProps = {
   MonthPicker: [
     {
       name: 'format',
-      label: '展示格式（format）',
+      label: '표시 형식(format)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM',
@@ -681,7 +673,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'valueFormat',
-      label: '绑定值格式（valueFormat）',
+      label: '바인딩 값 형식(valueFormat)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM',
@@ -691,7 +683,7 @@ const componentAttrs: IBaseComponentProps = {
   TimePicker: [
     {
       name: 'format',
-      label: '展示格式（format）',
+      label: '표시 형식(format)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM',
@@ -699,7 +691,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'valueFormat',
-      label: '绑定值格式（valueFormat）',
+      label: '바인딩 값 형식(valueFormat)',
       component: 'Input',
       componentProps: {
         placeholder: 'YYYY-MM',
@@ -709,164 +701,164 @@ const componentAttrs: IBaseComponentProps = {
   Slider: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본값',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入默认值',
+        placeholder: '기본값 입력',
       },
     },
     {
       name: 'min',
-      label: '最小值',
+      label: '최소값',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入最小值',
+        placeholder: '최소값 입력',
       },
     },
     {
       name: 'max',
-      label: '最大值',
+      label: '최대값',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入最大值',
+        placeholder: '최대값 입력',
       },
     },
     {
       name: 'step',
-      label: '步长',
+      label: '단계',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入步长',
+        placeholder: '단계 입력',
       },
     },
     {
       name: 'tooltipPlacement',
-      label: 'Tooltip 展示位置',
+      label: 'Tooltip 표시 위치',
       component: 'Select',
       componentProps: {
         options: [
-          { value: 'top', label: '上' },
-          { value: 'left', label: '左' },
-          { value: 'right', label: '右' },
-          { value: 'bottom', label: '下' },
-          { value: 'topLeft', label: '上右' },
-          { value: 'topRight', label: '上左' },
-          { value: 'bottomLeft', label: '右下' },
-          { value: 'bottomRight', label: '左下' },
-          { value: 'leftTop', label: '左下' },
-          { value: 'leftBottom', label: '左上' },
-          { value: 'rightTop', label: '右下' },
-          { value: 'rightBottom', label: '右上' },
+          { value: 'top', label: '위' },
+          { value: 'left', label: '왼쪽' },
+          { value: 'right', label: '오른쪽' },
+          { value: 'bottom', label: '아래' },
+          { value: 'topLeft', label: '위 왼쪽' },
+          { value: 'topRight', label: '위 오른쪽' },
+          { value: 'bottomLeft', label: '아래 왼쪽' },
+          { value: 'bottomRight', label: '아래 오른쪽' },
+          { value: 'leftTop', label: '왼쪽 위' },
+          { value: 'leftBottom', label: '왼쪽 아래' },
+          { value: 'rightTop', label: '오른쪽 위' },
+          { value: 'rightBottom', label: '오른쪽 아래' },
         ],
       },
     },
     {
       name: 'tooltipVisible',
-      label: '始终显示Tooltip',
+      label: '항상 Tooltip 표시',
       component: 'Checkbox',
     },
     {
       name: 'dots',
-      label: '只能拖拽到刻度上',
+      label: '단계별 이동',
       component: 'Checkbox',
     },
     {
       name: 'range',
-      label: '双滑块模式',
+      label: '이중 슬라이더 모드',
       component: 'Checkbox',
     },
     {
       name: 'reverse',
-      label: '反向坐标轴',
+      label: '반전 좌표축',
       component: 'Checkbox',
     },
     {
       name: 'vertical',
-      label: '垂直方向',
-      component: 'Checkbox',
+      label: '수직 방향',
+      component: '체크박스',
     },
     {
       name: 'included',
-      label: '值为包含关系',
-      component: 'Checkbox',
+      label: '값이 포함 관계',
+      component: '체크박스',
     },
   ],
   Rate: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본값',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入默认值',
+        placeholder: '기본값을 입력하세요',
       },
     },
     {
       name: 'character',
-      label: '自定义字符',
+      label: '사용자 지정 문자',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入自定义字符',
+        placeholder: '사용자 지정 문자를 입력하세요',
       },
     },
     {
       name: 'count',
-      label: 'start 总数',
+      label: '시작 총 수',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入自定义字符',
+        placeholder: '시작 총 수를 입력하세요',
       },
     },
   ],
   Switch: [
     {
       name: 'checkedChildren',
-      label: '选中时的内容',
+      label: '선택된 경우 내용',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入选中时的内容',
+        placeholder: '선택된 경우 내용을 입력하세요',
       },
     },
     {
       name: 'checkedValue',
-      label: '选中时的值',
+      label: '선택된 경우 값',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入选中时的值',
+        placeholder: '선택된 경우 값 입력',
       },
     },
     {
       name: 'unCheckedChildren',
-      label: '非选中时的内容',
+      label: '선택되지 않은 경우 내용',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入非选中时的内容',
+        placeholder: '선택되지 않은 경우 내용 입력',
       },
     },
     {
       name: 'unCheckedValue',
-      label: '非选中时的值',
+      label: '선택되지 않은 경우 값',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入非选中时的值',
+        placeholder: '선택되지 않은 경우 값 입력',
       },
     },
     {
       name: 'loading',
-      label: '加载中的开关',
+      label: '로딩 중 스위치',
       component: 'Checkbox',
     },
     {
       name: 'size',
-      label: '尺寸',
+      label: '크기',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '默认',
+            label: '기본',
             value: 'default',
           },
           {
-            label: '小',
+            label: '작은 크기',
             value: 'small',
           },
         ],
@@ -876,23 +868,23 @@ const componentAttrs: IBaseComponentProps = {
   TreeSelect: [
     {
       name: 'defaultValue',
-      label: '默认值',
+      label: '기본값',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入默认值',
+        placeholder: '기본값을 입력하세요',
       },
     },
     {
       name: 'searchPlaceholder',
-      label: '搜索框默认文字',
+      label: '검색 상자의 기본 텍스트',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入搜索框默认文字',
+        placeholder: '검색 상자의 기본 텍스트를 입력하세요',
       },
     },
     {
       name: 'treeNodeFilterProp',
-      label: '输入项过滤对应的 treeNode 属性',
+      label: '입력 항목 필터링에 대한 treeNode 속성',
       component: 'Input',
       componentProps: {
         defaultValue: 'value',
@@ -900,7 +892,7 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'treeNodeLabelProp',
-      label: '作为显示的 prop 设置',
+      label: '표시용 prop 설정',
       component: 'Input',
       componentProps: {
         defaultValue: 'title',
@@ -908,63 +900,62 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'dropdownClassName',
-      label: '下拉菜单的 className 属性',
+      label: '드롭다운 메뉴의 className 속성',
       component: 'Input',
       componentProps: {
-        placeholder: '请输入下拉菜单的 className 属性',
+        placeholder: '드롭다운 메뉴의 className 속성을 입력하세요',
       },
     },
-
     {
       name: 'labelInValue',
-      label: '选项的label包装到value中',
+      label: '옵션의 라벨을 value에 포함',
       component: 'Checkbox',
     },
     {
       name: 'treeIcon',
-      label: '展示TreeNode title前的图标',
+      label: 'TreeNode 타이틀 앞에 아이콘 표시',
       component: 'Checkbox',
     },
     {
       name: 'treeCheckable',
-      label: '选项可勾选',
+      label: '옵션 선택 가능',
       component: 'Checkbox',
     },
     {
       name: 'treeCheckStrictly',
-      label: '节点选择完全受控',
+      label: '노드 선택을 완전히 제어',
       component: 'Checkbox',
     },
     {
       name: 'treeDefaultExpandAll',
-      label: '默认展开所有',
+      label: '기본적으로 모두 펼치기',
       component: 'Checkbox',
     },
     {
       name: 'treeLine',
-      label: '是否展示线条样式',
+      label: '선 스타일 표시 여부',
       component: 'Checkbox',
     },
     {
       name: 'maxTagCount',
-      label: '最多显示多少个 tag',
+      label: '태그를 최대 몇 개까지 표시할지 결정',
       component: 'InputNumber',
       componentProps: {
-        placeholder: '最多显示多少个 tag',
+        placeholder: '태그를 최대 몇 개까지 표시할지 입력하세요.',
       },
     },
     {
       name: 'size',
-      label: '尺寸',
+      label: '크기',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '默认',
+            label: '기본',
             value: 'default',
           },
           {
-            label: '小',
+            label: '작은 크기',
             value: 'small',
           },
         ],
@@ -974,16 +965,16 @@ const componentAttrs: IBaseComponentProps = {
   Cascader: [
     {
       name: 'expandTrigger',
-      label: '次级展开方式(默认click)',
+      label: '하위 수준 펼치기 방식(기본값: 클릭)',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: 'click',
+            label: '클릭',
             value: 'click',
           },
           {
-            label: 'hover',
+            label: '마우스 호버',
             value: 'hover',
           },
         ],
@@ -993,24 +984,24 @@ const componentAttrs: IBaseComponentProps = {
   Button: [
     {
       name: 'type',
-      label: '类型',
+      label: '유형',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: 'default',
+            label: '기본',
             value: 'default',
           },
           {
-            label: 'primary',
+            label: '기본 색상(주요)',
             value: 'primary',
           },
           {
-            label: 'danger',
+            label: '위험한 작업',
             value: 'danger',
           },
           {
-            label: 'dashed',
+            label: '점선',
             value: 'dashed',
           },
         ],
@@ -1018,16 +1009,16 @@ const componentAttrs: IBaseComponentProps = {
     },
     {
       name: 'handle',
-      label: '操作',
+      label: '작업',
       component: 'RadioGroup',
       componentProps: {
         options: [
           {
-            label: '提交',
+            label: '제출',
             value: 'submit',
           },
           {
-            label: '重置',
+            label: '초기화',
             value: 'reset',
           },
         ],
@@ -1037,61 +1028,61 @@ const componentAttrs: IBaseComponentProps = {
   Upload: [
     {
       name: 'action',
-      label: '上传地址',
+      label: '업로드 주소',
       component: 'Input',
     },
     {
       name: 'name',
-      label: '附件参数名（name）',
+      label: '첨부 파일 매개 변수 이름',
       component: 'Input',
     },
   ],
   // ColorPicker: [
-  //   {
-  //     name: 'defaultValue',
-  //     label: '默认值',
-  //     component: 'AColorPicker',
-  //   },
+  // {
+  // name: 'defaultValue',
+  // label: '기본값',
+  // component: 'AColorPicker',
+  // },
   // ],
   slot: [
     {
       name: 'slotName',
-      label: '插槽名称',
+      label: '슬롯 이름',
       component: 'Input',
     },
   ],
   Transfer: [
     // {
-    //   name: 'operations',
-    //   label: '操作文案集合，顺序从上至下',
-    //   component: 'Input',
-    //   componentProps: {
-    //     type: 'text',
-    //     // defaultValue: ['>', '<'],
-    //   },
+    // name: 'operations',
+    // label: '작업 안내 문구 컬렉션, 위에서 아래로 정렬',
+    // component: 'Input',
+    // componentProps: {
+    // type: 'text',
+    // // defaultValue: ['>', '<'],
+    // },
     // },
     // {
-    //   name: 'titles',
-    //   label: '标题集合，顺序从左至右',
-    //   component: 'Input',
-    //   componentProps: {
-    //     type: 'text',
-    //     // defaultValue: ['', ''],
-    //   },
+    // name: 'titles',
+    // label: '제목 컬렉션, 왼쪽에서 오른쪽으로 정렬',
+    // component: 'Input',
+    // componentProps: {
+    // type: 'text',
+    // // defaultValue: ['', ''],
+    // },
     // },
     {
       name: 'oneWay',
-      label: '展示为单向样式',
+      label: '단방향 스타일로 표시',
       component: 'Checkbox',
     },
     {
       name: 'pagination',
-      label: '使用分页样式',
+      label: '페이지 스타일 사용',
       component: 'Checkbox',
     },
     {
       name: 'showSelectAll',
-      label: '展示全选勾选框',
+      label: '전체 선택 확인란 표시',
       component: 'Checkbox',
     },
   ],
@@ -1108,7 +1099,7 @@ function deleteProps(list: Omit<IBaseFormAttrs, 'tag'>[], key: string) {
 componentAttrs['StrengthMeter'] = componentAttrs['Input'];
 componentAttrs['StrengthMeter'].push({
   name: 'visibilityToggle',
-  label: '是否显示切换按钮',
+  label: '가시성 토글',
   component: 'Checkbox',
 });
 

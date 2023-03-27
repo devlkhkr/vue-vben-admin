@@ -3,7 +3,6 @@
 </template>
 <script lang="ts">
   import { defineComponent, PropType, ref, Ref, onMounted } from 'vue';
-
   import { useECharts } from '/@/hooks/web/useECharts';
 
   export default defineComponent({
@@ -22,23 +21,23 @@
       const { setOptions } = useECharts(chartRef as Ref<HTMLDivElement>);
       const dataAll = [389, 259, 262, 324, 232, 176, 196, 214, 133, 370];
       const yAxisData = [
-        '原因1',
-        '原因2',
-        '原因3',
-        '原因4',
-        '原因5',
-        '原因6',
-        '原因7',
-        '原因8',
-        '原因9',
-        '原因10',
+        '원인1',
+        '원인2',
+        '원인3',
+        '원인4',
+        '원인5',
+        '원인6',
+        '원인7',
+        '원인8',
+        '원인9',
+        '원인10',
       ];
       onMounted(() => {
         setOptions({
           backgroundColor: '#0f375f',
           title: [
             {
-              text: '各渠道投诉占比',
+              text: '각 채널 불만 점유율',
               left: '2%',
               top: '1%',
               textStyle: {
@@ -47,7 +46,7 @@
               },
             },
             {
-              text: '投诉原因TOP10',
+              text: '불만 원인 TOP10',
               left: '40%',
               top: '1%',
               textStyle: {
@@ -56,7 +55,7 @@
               },
             },
             {
-              text: '各级别投诉占比',
+              text: '각 레벨 불만 점유율',
               left: '2%',
               top: '50%',
               textStyle: {
@@ -91,16 +90,16 @@
           ],
           series: [
             {
-              name: '各渠道投诉占比',
+              name: '각 채널 불만 점유율',
               type: 'pie',
               radius: '30%',
               center: ['22%', '25%'],
               data: [
-                { value: 335, name: '客服电话' },
-                { value: 310, name: '奥迪官网' },
-                { value: 234, name: '媒体曝光' },
-                { value: 135, name: '质检总局' },
-                { value: 105, name: '其他' },
+                { value: 335, name: '고객센터 전화' },
+                { value: 310, name: '아우디 공식 웹사이트' },
+                { value: 234, name: '미디어 노출' },
+                { value: 135, name: '품질검사원' },
+                { value: 105, name: '기타' },
               ],
               labelLine: { show: false },
               label: {
@@ -110,16 +109,16 @@
               },
             },
             {
-              name: '各级别投诉占比',
+              name: '각 레벨의 불만 비율',
               type: 'pie',
               radius: '30%',
               center: ['22%', '75%'],
               labelLine: { show: false },
               data: [
-                { value: 335, name: 'A级' },
-                { value: 310, name: 'B级' },
-                { value: 234, name: 'C级' },
-                { value: 135, name: 'D级' },
+                { value: 335, name: 'A레벨' },
+                { value: 310, name: 'B레벨' },
+                { value: 234, name: 'C레벨' },
+                { value: 135, name: 'D레벨' },
               ],
               label: {
                 show: true,
@@ -128,7 +127,7 @@
               },
             },
             {
-              name: '投诉原因TOP10',
+              name: '최다 불만 사유 TOP 10',
               type: 'bar',
               xAxisIndex: 0,
               yAxisIndex: 0,

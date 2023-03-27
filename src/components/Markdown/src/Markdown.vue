@@ -21,7 +21,7 @@
   import { onMountedOrActivated } from '/@/hooks/core/onMountedOrActivated';
   import { getTheme } from './getTheme';
 
-  type Lang = 'zh_CN' | 'en_US' | 'ja_JP' | 'ko_KR' | undefined;
+  type Lang = 'en_US' | 'ko_KR' | undefined;
 
   export default defineComponent({
     inheritAttrs: false,
@@ -67,20 +67,17 @@
         },
       );
 
-      const getCurrentLang = computed((): 'zh_CN' | 'en_US' | 'ja_JP' | 'ko_KR' => {
+      const getCurrentLang = computed((): 'en_US' | 'ko_KR' => {
         let lang: Lang;
         switch (unref(getLocale)) {
           case 'en':
             lang = 'en_US';
             break;
-          case 'ja':
-            lang = 'ja_JP';
-            break;
           case 'ko':
             lang = 'ko_KR';
             break;
           default:
-            lang = 'zh_CN';
+            lang = 'ko_KR';
         }
         return lang;
       });

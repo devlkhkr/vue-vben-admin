@@ -54,7 +54,7 @@ export const customComponents: IVFormComponent[] = [];
 export const baseComponents: IVFormComponent[] = [
   {
     component: 'InputCountDown',
-    label: '倒计时输入',
+    label: '카운트다운',
     icon: 'line-md:iconify2',
     colProps: { span: 24 },
     field: '',
@@ -62,7 +62,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'IconPicker',
-    label: '图标选择器',
+    label: '아이콘',
     icon: 'line-md:iconify2',
     colProps: { span: 24 },
     field: '',
@@ -70,7 +70,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'StrengthMeter',
-    label: '密码强度',
+    label: '암호강도',
     icon: 'wpf:password1',
     colProps: { span: 24 },
     field: '',
@@ -78,27 +78,27 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'AutoComplete',
-    label: '自动完成',
+    label: '자동완성',
     icon: 'wpf:password1',
     colProps: { span: 24 },
     field: '',
     componentProps: {
-      placeholder: '请输入正则表达式',
+      placeholder: '정규식을 입력하세요',
       options: [
         {
-          value: '/^(?:(?:\\+|00)86)?1[3-9]\\d{9}$/',
-          label: '手机号码',
+          value: '/^(?:(?:+|00)86)?1[3-9]d{9}$/',
+          label: '휴대전화 번호',
         },
         {
-          value: '/^((ht|f)tps?:\\/\\/)?[\\w-]+(\\.[\\w-]+)+:\\d{1,5}\\/?$/',
-          label: '网址带端口号',
+          value: '/^((ht|f)tps?://)?[w-]+(.[w-]+)+:d{1,5}/?$/',
+          label: '포트 번호가 있는 URL',
         },
       ],
     },
   },
   {
     component: 'Divider',
-    label: '分割线',
+    label: '구분선',
     icon: 'radix-icons:divider-horizontal',
     colProps: { span: 24 },
     field: '',
@@ -109,25 +109,25 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Checkbox',
-    label: '复选框',
+    label: '체크박스',
     icon: 'ant-design:check-circle-outlined',
     colProps: { span: 24 },
     field: '',
   },
   {
     component: 'CheckboxGroup',
-    label: '复选框-组',
+    label: '체크 그룹',
     icon: 'ant-design:check-circle-filled',
     field: '',
     colProps: { span: 24 },
     componentProps: {
       options: [
         {
-          label: '选项1',
+          label: '옵션1',
           value: '1',
         },
         {
-          label: '选项2',
+          label: '옵션2',
           value: '2',
         },
       ],
@@ -135,7 +135,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Input',
-    label: '输入框',
+    label: '입력창',
     icon: 'bi:input-cursor-text',
     field: '',
     colProps: { span: 24 },
@@ -145,7 +145,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'InputNumber',
-    label: '数字输入框',
+    label: '숫자 입력창',
     icon: 'ant-design:field-number-outlined',
     field: '',
     colProps: { span: 24 },
@@ -153,26 +153,27 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'InputTextArea',
-    label: '文本域',
+    label: '텍스트 영역',
     icon: 'ant-design:file-text-filled',
     field: '',
     colProps: { span: 24 },
     componentProps: {},
   },
+
   {
     component: 'Select',
-    label: '下拉选择',
+    label: '드롭다운',
     icon: 'gg:select',
     field: '',
     colProps: { span: 24 },
     componentProps: {
       options: [
         {
-          label: '选项1',
+          label: '옵션1',
           value: '1',
         },
         {
-          label: '选项2',
+          label: '옵션2',
           value: '2',
         },
       ],
@@ -181,7 +182,7 @@ export const baseComponents: IVFormComponent[] = [
 
   {
     component: 'Radio',
-    label: '单选框',
+    label: '라디오',
     icon: 'ant-design:check-circle-outlined',
     field: '',
     colProps: { span: 24 },
@@ -189,18 +190,18 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'RadioGroup',
-    label: '单选框-组',
+    label: '라디오 그룹',
     icon: 'carbon:radio-button-checked',
     field: '',
     colProps: { span: 24 },
     componentProps: {
       options: [
         {
-          label: '选项1',
+          label: '옵션1',
           value: '1',
         },
         {
-          label: '选项2',
+          label: '옵션2',
           value: '2',
         },
       ],
@@ -208,7 +209,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'DatePicker',
-    label: '日期选择',
+    label: '날짜 선택',
     icon: 'healthicons:i-schedule-school-date-time-outline',
     field: '',
     colProps: { span: 24 },
@@ -216,27 +217,27 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'RangePicker',
-    label: '日期范围',
+    label: '날짜 범위',
     icon: 'healthicons:i-schedule-school-date-time-outline',
     field: '',
     colProps: { span: 24 },
     componentProps: {
-      placeholder: ['开始日期', '结束日期'],
+      placeholder: ['시작 날짜', '끝 날짜'],
     },
   },
   {
     component: 'MonthPicker',
-    label: '月份选择',
+    label: '월 선택',
     icon: 'healthicons:i-schedule-school-date-time-outline',
     field: '',
     colProps: { span: 24 },
     componentProps: {
-      placeholder: '请选择月份',
+      placeholder: '월을 선택해주세요',
     },
   },
   {
     component: 'TimePicker',
-    label: '时间选择',
+    label: '시간 선택',
     icon: 'healthicons:i-schedule-school-date-time',
     field: '',
     colProps: { span: 24 },
@@ -244,7 +245,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Slider',
-    label: '滑动输入条',
+    label: '슬라이더',
     icon: 'vaadin:slider',
     field: '',
     colProps: { span: 24 },
@@ -252,7 +253,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Rate',
-    label: '评分',
+    label: '별점',
     icon: 'ic:outline-star-rate',
     field: '',
     colProps: { span: 24 },
@@ -260,7 +261,7 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Switch',
-    label: '开关',
+    label: '스위치',
     icon: 'entypo:switch',
     field: '',
     colProps: { span: 24 },
@@ -268,32 +269,33 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'TreeSelect',
-    label: '树形选择',
+    label: '트리형 선택',
     icon: 'clarity:tree-view-line',
     field: '',
     colProps: { span: 24 },
     componentProps: {
       treeData: [
         {
-          label: '选项1',
+          label: '옵션1',
           value: '1',
           children: [
             {
-              label: '选项三',
+              label: '옵션3',
               value: '1-1',
             },
           ],
         },
         {
-          label: '选项2',
+          label: '옵션2',
           value: '2',
         },
       ],
     },
   },
+
   {
     component: 'Upload',
-    label: '上传',
+    label: '업로드',
     icon: 'ant-design:upload-outlined',
     field: '',
     colProps: { span: 24 },
@@ -303,53 +305,53 @@ export const baseComponents: IVFormComponent[] = [
   },
   {
     component: 'Cascader',
-    label: '级联选择',
+    label: '폭포형 선택',
     icon: 'ant-design:check-outlined',
     field: '',
     colProps: { span: 24 },
     componentProps: {
       options: [
         {
-          label: '选项1',
+          label: '옵션 1',
           value: '1',
           children: [
             {
-              label: '选项三',
+              label: '옵션 3',
               value: '1-1',
             },
           ],
         },
         {
-          label: '选项2',
+          label: '옵션 2',
           value: '2',
         },
       ],
     },
   },
   // {
-  //   component: 'Button',
-  //   label: '按钮',
-  //   icon: 'dashicons:button',
-  //   field: '',
-  //   colProps: { span: 24 },
-  //   hiddenLabel: true,
-  //   componentProps: {},
+  // component: 'Button',
+  // label: '버튼',
+  // icon: 'dashicons:button',
+  // field: '',
+  // colProps: { span: 24 },
+  // hiddenLabel: true,
+  // componentProps: {},
   // },
   // {
-  //   component: 'ColorPicker',
-  //   label: '颜色选择器',
-  //   icon: 'carbon:color-palette',
-  //   field: '',
-  //   colProps: { span: 24 },
-  //   componentProps: {
-  //     defaultValue: '',
-  //     value: '',
-  //   },
+  // component: 'ColorPicker',
+  // label: '색상 선택기',
+  // icon: 'carbon:color-palette',
+  // field: '',
+  // colProps: { span: 24 },
+  // componentProps: {
+  // defaultValue: '',
+  // value: '',
+  // },
   // },
 
   {
     component: 'slot',
-    label: '插槽',
+    label: '슬롯',
     icon: 'vs:timeslot-question',
     field: '',
     colProps: { span: 24 },
@@ -362,7 +364,7 @@ export const baseComponents: IVFormComponent[] = [
 // https://next.antdv.com/components/transfer-cn
 const transferControl = {
   component: 'Transfer',
-  label: '穿梭框',
+  label: '트랜스퍼',
   icon: 'bx:bx-transfer-alt',
   field: '',
   colProps: { span: 24 },
@@ -371,21 +373,21 @@ const transferControl = {
     dataSource: [
       {
         key: 'key-1',
-        title: '标题1',
-        description: '描述',
+        title: '제목 1',
+        description: '설명',
         disabled: false,
         chosen: true,
       },
       {
         key: 'key-2',
-        title: 'title2',
-        description: 'description2',
+        title: '제목 2',
+        description: '설명 2',
         disabled: true,
       },
       {
         key: 'key-3',
-        title: '标题3',
-        description: '描述3',
+        title: '제목 3',
+        description: '설명 3',
         disabled: false,
         chosen: true,
       },
@@ -399,7 +401,7 @@ export const layoutComponents: IVFormComponent[] = [
   {
     field: '',
     component: 'Grid',
-    label: '栅格布局',
+    label: '그리드',
     icon: 'icon-grid',
     componentProps: {},
     columns: [

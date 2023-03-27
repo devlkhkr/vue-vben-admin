@@ -4,7 +4,11 @@
 <template>
   <div class="properties-content">
     <div class="properties-body" v-if="formConfig.currentItem">
-      <Empty class="hint-box" v-if="!formConfig.currentItem.key" description="未选择控件" />
+      <Empty
+        class="hint-box"
+        v-if="!formConfig.currentItem.key"
+        description="컴포넌트를 선택해주세요."
+      />
       <Form v-else label-align="left" layout="vertical">
         <div v-for="item of baseItemColumnProps" :key="item.name">
           <FormItem :label="item.label" v-if="showProps(item.exclude)">

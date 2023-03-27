@@ -4,7 +4,11 @@
 <template>
   <div class="properties-content">
     <div class="properties-body" v-if="formConfig.currentItem?.itemProps">
-      <Empty class="hint-box" v-if="!formConfig.currentItem.key" description="未选择控件" />
+      <Empty
+        class="hint-box"
+        v-if="!formConfig.currentItem.key"
+        description="컴포넌트를 선택해주세요."
+      />
       <Form v-else label-align="left" layout="vertical">
         <div v-for="item of baseFormItemProps" :key="item.name">
           <FormItem :label="item.label" v-if="showProps(item.exclude)">
@@ -35,14 +39,17 @@
             />
           </FormItem>
         </div>
-        <FormItem label="控制属性" v-if="controlPropsList.length">
+        <FormItem label="컨트롤 속성" v-if="controlPropsList.length">
           <Col v-for="item of controlPropsList" :key="item.name">
             <Checkbox v-model:checked="formConfig.currentItem.itemProps[item.name]">
               {{ item.label }}
             </Checkbox>
           </Col>
         </FormItem>
-        <FormItem label="是否必选" v-if="!['Grid'].includes(formConfig.currentItem.component)">
+        <FormItem
+          label="필수 선택 여부"
+          v-if="!['Grid'].includes(formConfig.currentItem.component)"
+        >
           <Switch v-model:checked="formConfig.currentItem.itemProps['required']" />
           <Input
             v-if="formConfig.currentItem.itemProps['required']"
@@ -52,7 +59,7 @@
         </FormItem>
         <FormItem
           v-if="!['Grid'].includes(formConfig.currentItem.component)"
-          label="校验规则"
+          label="유효성 검사 규칙"
           :class="{ 'form-rule-props': !!formConfig.currentItem.itemProps['rules'] }"
         >
           <RuleProps />

@@ -3,24 +3,24 @@ import type { AppRouteModule } from '/@/router/types';
 import { LAYOUT } from '/@/router/constant';
 import { t } from '/@/hooks/web/useI18n';
 
-const about: AppRouteModule = {
-  path: '/about',
-  name: 'About',
+const stat: AppRouteModule = {
+  path: '/stat',
+  name: 'Stat',
   component: LAYOUT,
-  redirect: '/about/index',
+  redirect: '/stat/index',
   meta: {
     hideChildrenInMenu: true,
-    icon: 'simple-icons:about-dot-me',
-    title: t('routes.dashboard.about'),
-    orderNo: 100000,
+    icon: 'material-symbols:bar-chart',
+    title: t('routes.syncany.stat'),
+    orderNo: 7,
   },
   children: [
     {
       path: 'index',
-      name: 'AboutPage',
-      component: () => import('/@/views/sys/about/index.vue'),
+      name: 'StatPage',
+      component: () => import('/@/views/syncany/stat/index.vue'),
       meta: {
-        title: t('routes.dashboard.about'),
+        title: t('routes.syncany.stat'),
         icon: 'simple-icons:about-dot-me',
         hideMenu: true,
       },
@@ -28,4 +28,4 @@ const about: AppRouteModule = {
   ],
 };
 
-export default about;
+export default stat;

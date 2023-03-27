@@ -141,7 +141,7 @@
 
       const langName = computed(() => {
         const lang = useLocale().getLocale.value;
-        return ['zh_CN', 'en'].includes(lang) ? lang : 'zh_CN';
+        return ['en', 'ko'].includes(lang) ? lang : 'ko';
       });
 
       const initOptions = computed((): RawEditorSettings => {

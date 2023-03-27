@@ -6,12 +6,12 @@ export function createFakeUserList() {
     {
       userId: '1',
       username: 'vben',
-      realName: 'Vben Admin',
+      realName: 'SyncAny',
       avatar: '',
       desc: 'manager',
       password: '123456',
       token: 'fakeToken1',
-      homePath: '/dashboard/analysis',
+      homePath: '/user/index',
       roles: [
         {
           roleName: 'Super Admin',
@@ -27,7 +27,7 @@ export function createFakeUserList() {
       avatar: '',
       desc: 'tester',
       token: 'fakeToken2',
-      homePath: '/dashboard/workbench',
+      homePath: '/user/index',
       roles: [
         {
           roleName: 'Tester',

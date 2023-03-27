@@ -1,0 +1,16 @@
+export default {
+  syncany: '싱크애니',
+  group: '그룹',
+  user: '사용자',
+  agents: '에이전트',
+  agentsFolder: '에이전트 폴더',
+  serverFolder: '서버폴더',
+  schedule: '스케쥴',
+  pendingSys: '실행대기',
+  stat: '통계',
+  webStat: '웹 통계',
+  notice: '공지사항',
+  builtIn: 'vben 빌트인',
+  formDesign: '폼 디자인',
+  guide: '한국어 가이드',
+};

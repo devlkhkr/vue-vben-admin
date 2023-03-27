@@ -24,8 +24,8 @@ export const useLocaleStore = defineStore({
     getShowPicker(state): boolean {
       return !!state.localInfo?.showPicker;
     },
-    getLocale(state): LocaleType {
-      return state.localInfo?.locale ?? 'zh_CN';
+    getLocale(): LocaleType {
+      return this.localInfo?.locale ?? 'ko_KR';
     },
   },
   actions: {

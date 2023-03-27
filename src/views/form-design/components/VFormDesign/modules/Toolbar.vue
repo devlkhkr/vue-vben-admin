@@ -12,12 +12,12 @@
         </a>
       </Tooltip>
       <Divider type="vertical" />
-      <Tooltip title="撤销">
+      <Tooltip title="실행취소">
         <a :class="{ disabled: !canUndo }" :disabled="!canUndo" @click="undo">
           <Icon icon="ant-design:undo-outlined" />
         </a>
       </Tooltip>
-      <Tooltip title="重做">
+      <Tooltip title="다시실행">
         <a :class="{ disabled: !canRedo }" :disabled="!canRedo" @click="redo">
           <Icon icon="ant-design:redo-outlined" />
         </a>
@@ -53,37 +53,37 @@
       }>({
         toolbarsConfigs: [
           {
-            title: '预览-支持布局',
+            title: '미리보기 - 레이아웃 지원',
             type: 'preview',
             event: 'handlePreview',
             icon: 'ant-design:chrome-filled',
           },
           {
-            title: '预览-不支持布局',
+            title: '미리보기 - 레이아웃 미지원',
             type: 'preview',
             event: 'handlePreview2',
             icon: 'ant-design:chrome-filled',
           },
           {
-            title: '导入JSON',
+            title: 'JSON 가져오기',
             type: 'importJson',
             event: 'handleOpenImportJsonModal',
             icon: 'ant-design:import-outlined',
           },
           {
-            title: '生成JSON',
+            title: 'JSON 생성',
             type: 'exportJson',
             event: 'handleOpenJsonModal',
             icon: 'ant-design:export-outlined',
           },
           {
-            title: '生成代码',
+            title: '코드 생성',
             type: 'exportCode',
             event: 'handleOpenCodeModal',
             icon: 'ant-design:code-filled',
           },
           {
-            title: '清空',
+            title: '지우기',
             type: 'reset',
             event: 'handleClearFormItems',
             icon: 'ant-design:clear-outlined',

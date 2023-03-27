@@ -4,7 +4,11 @@
 <template>
   <div class="properties-content">
     <div class="properties-body" v-if="formConfig.currentItem">
-      <Empty class="hint-box" v-if="!formConfig.currentItem.key" description="未选择组件" />
+      <Empty
+        class="hint-box"
+        v-if="!formConfig.currentItem.key"
+        description="컴포넌트를 선택해주세요."
+      />
 
       <Form label-align="left" layout="vertical">
         <!--    循环遍历渲染组件属性      -->
@@ -31,7 +35,7 @@
               v-model:value="formConfig.currentItem.componentProps[item.name]"
             />
           </FormItem>
-          <FormItem label="控制属性">
+          <FormItem label="컨트롤 속성">
             <Col v-for="item in controlOptions" :key="item.name">
               <Checkbox
                 v-if="showControlAttrs(item.includes)"
@@ -43,7 +47,7 @@
             </Col>
           </FormItem>
         </div>
-        <FormItem label="关联字段">
+        <FormItem label="관련 필드">
           <Select
             mode="multiple"
             v-model:value="formConfig.currentItem['link']"
