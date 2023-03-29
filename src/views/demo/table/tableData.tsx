@@ -6,13 +6,12 @@ import { VxeFormItemProps, VxeGridPropTypes } from '/@/components/VxeTable';
 export function getBasicColumns(): BasicColumn[] {
   return [
     {
-      title: 'ID',
+      title: '아이디',
       dataIndex: 'id',
       fixed: 'left',
-      width: 200,
     },
     {
-      title: '姓名',
+      title: '이름',
       dataIndex: 'name',
       width: 150,
       filters: [
@@ -21,24 +20,24 @@ export function getBasicColumns(): BasicColumn[] {
       ],
     },
     {
-      title: '地址',
+      title: '주소',
       dataIndex: 'address',
     },
     {
-      title: '编号',
+      title: '번호',
       dataIndex: 'no',
       width: 150,
       sorter: true,
       defaultHidden: true,
     },
     {
-      title: '开始时间',
+      title: '시작 시간',
       width: 150,
       sorter: true,
       dataIndex: 'beginTime',
     },
     {
-      title: '结束时间',
+      title: '종료 시간',
       width: 150,
       sorter: true,
       dataIndex: 'endTime',
@@ -56,16 +55,16 @@ export function getBasicShortColumns(): BasicColumn[] {
       sortOrder: 'ascend',
     },
     {
-      title: '姓名',
+      title: '이름',
       dataIndex: 'name',
       width: 120,
     },
     {
-      title: '地址',
+      title: '주소',
       dataIndex: 'address',
     },
     {
-      title: '编号',
+      title: '번호',
       dataIndex: 'no',
       width: 80,
     },
@@ -80,32 +79,31 @@ export function getMultipleHeaderColumns(): BasicColumn[] {
       width: 200,
     },
     {
-      title: '姓名',
+      title: '이름',
       dataIndex: 'name',
       width: 120,
     },
     {
-      title: '地址',
+      title: '주소',
       dataIndex: 'address',
       sorter: true,
       children: [
         {
-          title: '编号',
+          title: '번호',
           dataIndex: 'no',
           width: 120,
           filters: [
-            { text: 'Male', value: 'male', children: [] },
-            { text: 'Female', value: 'female', children: [] },
+            { text: '남성', value: 'male', children: [] },
+            { text: '여성', value: 'female', children: [] },
           ],
         },
-
         {
-          title: '开始时间',
+          title: '시작 시간',
           dataIndex: 'beginTime',
           width: 120,
         },
         {
-          title: '结束时间',
+          title: '종료 시간',
           dataIndex: 'endTime',
           width: 120,
         },
@@ -113,45 +111,43 @@ export function getMultipleHeaderColumns(): BasicColumn[] {
     },
   ];
 }
-
 export function getCustomHeaderColumns(): BasicColumn[] {
   return [
     {
       title: 'ID',
       dataIndex: 'id',
-      helpMessage: 'headerHelpMessage方式1',
+      helpMessage: '헤더 도움말 예시 1',
       width: 200,
     },
     {
-      // title: '姓名',
+      // title: '이름',
       dataIndex: 'name',
       width: 120,
       // slots: { title: 'customTitle' },
     },
     {
-      // title: '地址',
+      // title: '주소',
       dataIndex: 'address',
       width: 120,
       // slots: { title: 'customAddress' },
       sorter: true,
     },
-
     {
-      title: '编号',
+      title: '번호',
       dataIndex: 'no',
       width: 120,
       filters: [
-        { text: 'Male', value: 'male', children: [] },
-        { text: 'Female', value: 'female', children: [] },
+        { text: '남성', value: 'male', children: [] },
+        { text: '여성', value: 'female', children: [] },
       ],
     },
     {
-      title: '开始时间',
+      title: '시작 시간',
       dataIndex: 'beginTime',
       width: 120,
     },
     {
-      title: '结束时间',
+      title: '종료 시간',
       dataIndex: 'endTime',
       width: 120,
     },
@@ -165,7 +161,7 @@ const cellContent = (_, index) => ({
 export function getMergeHeaderColumns(): BasicColumn[] {
   return [
     {
-      title: 'ID',
+      title: '아이디',
       dataIndex: 'id',
       width: 300,
       customCell: (_, index) => ({
@@ -173,13 +169,13 @@ export function getMergeHeaderColumns(): BasicColumn[] {
       }),
     },
     {
-      title: '姓名',
+      title: '이름',
       dataIndex: 'name',
       width: 300,
       customCell: cellContent,
     },
     {
-      title: '地址',
+      title: '주소',
       dataIndex: 'address',
       colSpan: 2,
       width: 120,
@@ -190,7 +186,7 @@ export function getMergeHeaderColumns(): BasicColumn[] {
       }),
     },
     {
-      title: '编号',
+      title: '번호',
       dataIndex: 'no',
       colSpan: 0,
       filters: [
@@ -200,13 +196,13 @@ export function getMergeHeaderColumns(): BasicColumn[] {
       customCell: cellContent,
     },
     {
-      title: '开始时间',
+      title: '시작 시간',
       dataIndex: 'beginTime',
       width: 200,
       customCell: cellContent,
     },
     {
-      title: '结束时间',
+      title: '종료 시간',
       dataIndex: 'endTime',
       width: 200,
       customCell: cellContent,
@@ -218,7 +214,7 @@ export const getAdvanceSchema = (itemNumber = 6): FormSchema[] => {
   for (let index = 0; index < itemNumber; index++) {
     arr.push({
       field: `field${index}`,
-      label: `字段${index}`,
+      label: `옵션${index}`,
       component: 'Input',
       colProps: {
         xl: 12,
@@ -235,7 +231,7 @@ export function getFormConfig(): Partial<FormProps> {
       ...getAdvanceSchema(5),
       {
         field: `field11`,
-        label: `Slot示例`,
+        label: `Slot 예제`,
         component: 'Select',
         slot: 'custom',
         colProps: {
@@ -246,18 +242,28 @@ export function getFormConfig(): Partial<FormProps> {
     ],
   };
 }
+
 export function getBasicData() {
   return (() => {
     const arr: any = [];
     for (let index = 0; index < 40; index++) {
       arr.push({
-        id: `${index}`,
-        name: 'John Brown',
-        age: `1${index}`,
-        no: `${index + 10}`,
-        address: 'New York No. 1 Lake ParkNew York No. 1 Lake Park',
-        beginTime: new Date().toLocaleString(),
-        endTime: new Date().toLocaleString(),
+        id: `crefia_${index}`,
+        name: 'crefia',
+        email: 'crefia@basicit.co.kr',
+        state: 'active',
+        actions: (() => {
+          return (
+            <div>
+              <a-button ghost color="success">
+                수정
+              </a-button>
+              <a-button ghost color="error" class="ml-2">
+                삭제
+              </a-button>
+            </div>
+          );
+        })(),
       });
     }
     return arr;
@@ -295,58 +301,58 @@ export function getTreeTableData() {
 
 export const vxeTableColumns: VxeGridPropTypes.Columns = [
   {
-    title: '序号',
+    title: '일련번호',
     type: 'seq',
     fixed: 'left',
     width: '50',
     align: 'center',
   },
   {
-    title: '固定列',
+    title: '고정 열',
     field: 'name',
     width: 150,
     showOverflow: 'tooltip',
     fixed: 'left',
   },
   {
-    title: '自适应列',
+    title: '자동 조정 열',
     field: 'address',
   },
   {
-    title: '自定义列(自定义导出)',
+    title: '사용자 지정 열(사용자 지정 내보내기)',
     field: 'no',
     width: 200,
     showOverflow: 'tooltip',
     align: 'center',
     slots: {
       default: ({ row }) => {
-        const text = `自定义${row.no}`;
+        const text = `사용자 정의${row.no}`;
         return [<div class="text-red-500">{text}</div>];
       },
     },
     exportMethod: ({ row }) => {
-      return `自定义${row.no}导出`;
+      return `사용자 정의${row.no} 내보내기`;
     },
   },
   {
-    title: '自定义编辑',
+    title: '사용자 정의 편집',
     width: 150,
     field: 'name1',
     align: 'center',
     editRender: {
       name: 'AInput',
-      placeholder: '请点击输入',
+      placeholder: '클릭하여 입력하세요',
     },
   },
   {
-    title: '开始时间',
+    title: '시작 시간',
     width: 150,
     field: 'beginTime',
     showOverflow: 'tooltip',
     align: 'center',
   },
   {
-    title: '结束时间',
+    title: '종료 시간',
     width: 150,
     field: 'endTime',
     showOverflow: 'tooltip',
@@ -354,9 +360,9 @@ export const vxeTableColumns: VxeGridPropTypes.Columns = [
   },
   {
     width: 160,
-    title: '操作',
+    title: '조작',
     align: 'center',
-    slots: { default: 'action' },
+    slots: { default: '작업' },
     fixed: 'right',
   },
 ];

@@ -88,12 +88,12 @@
         mode: 'multiple',
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
             key: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
             key: '2',
           },
@@ -146,11 +146,11 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
           },
         ],
@@ -167,11 +167,11 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
           },
         ],

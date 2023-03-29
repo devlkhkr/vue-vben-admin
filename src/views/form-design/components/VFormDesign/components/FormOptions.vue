@@ -26,7 +26,7 @@
       </div>
       <a @click="addOptions">
         <Icon icon="ant-design:file-add-outlined" />
-        添加选项
+        추가옵션
       </a>
     </div>
   </div>
@@ -52,7 +52,7 @@
           formConfig.value.currentItem!.componentProps![key] = [];
         const len = formConfig.value.currentItem?.componentProps?.[key].length + 1;
         formConfig.value.currentItem!.componentProps![key].push({
-          label: `选项${len}`,
+          label: `선택옵션${len}`,
           value: '' + len,
         });
       };

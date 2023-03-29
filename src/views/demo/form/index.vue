@@ -73,7 +73,7 @@
   const valueSelectA = ref<string[]>([]);
   const valueSelectB = ref<string[]>([]);
   const options = ref<Recordable[]>([]);
-  for (let i = 1; i < 10; i++) options.value.push({ label: '选项' + i, value: `${i}` });
+  for (let i = 1; i < 10; i++) options.value.push({ label: '선택옵션' + i, value: `${i}` });
 
   const optionsA = computed(() => {
     return cloneDeep(unref(options)).map((op) => {
@@ -220,12 +220,12 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
             key: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
             key: '2',
           },
@@ -242,11 +242,11 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
           },
         ],
@@ -262,11 +262,11 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
           },
         ],
@@ -299,11 +299,11 @@
       componentProps: {
         options: [
           {
-            label: '选项1',
+            label: '선택옵션1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: '선택옵션2',
             value: '2',
           },
         ],
@@ -425,7 +425,7 @@
       field: 'field31',
       component: 'Input',
       label: '下拉本地搜索',
-      helpMessage: ['ApiSelect组件', '远程数据源本地搜索', '只发起一次请求获取所有选项'],
+      helpMessage: ['ApiSelect组件', '远程数据源本地搜索', '只发起一次请求获取所有선택옵션'],
       required: true,
       slot: 'localSearch',
       colProps: {
@@ -449,7 +449,7 @@
       field: 'field33',
       component: 'ApiTreeSelect',
       label: '远程下拉树',
-      helpMessage: ['ApiTreeSelect组件', '使用接口提供的数据生成选项'],
+      helpMessage: ['ApiTreeSelect组件', '使用接口提供的数据生成선택옵션'],
       required: true,
       componentProps: {
         api: treeOptionsListApi,
@@ -466,7 +466,7 @@
       field: 'field34',
       component: 'ApiRadioGroup',
       label: '远程Radio',
-      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成选项'],
+      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成선택옵션'],
       required: true,
       componentProps: {
         api: optionsListApi,
@@ -488,7 +488,7 @@
       field: 'field35',
       component: 'ApiRadioGroup',
       label: '远程Radio',
-      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成选项'],
+      helpMessage: ['ApiRadioGroup组件', '使用接口提供的数据生成선택옵션'],
       required: true,
       componentProps: {
         api: optionsListApi,
@@ -513,7 +513,7 @@
     //   field: 'field36',
     //   component: 'ApiTree',
     //   label: '远程Tree',
-    //   helpMessage: ['ApiTree组件', '使用接口提供的数据生成选项'],
+    //   helpMessage: ['ApiTree组件', '使用接口提供的数据生成선택옵션'],
     //   required: true,
     //   componentProps: {
     //     api: treeOptionsListApi,

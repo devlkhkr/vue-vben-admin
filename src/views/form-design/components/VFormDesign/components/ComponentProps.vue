@@ -56,7 +56,7 @@
         </FormItem>
 
         <FormItem
-          label="选项"
+          label="선택옵션"
           v-if="
             [
               'Select',
@@ -198,7 +198,7 @@
           immediate: true,
         },
       );
-      // 控制性的选项
+      // 控制性的선택옵션
       const controlOptions = computed(() => {
         return allOptions.value.filter((item) => {
           return item.category == 'control';

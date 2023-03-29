@@ -1,21 +1,21 @@
 <template>
   <BasicTable @register="registerTable">
-    <template #form-custom> custom-slot </template>
+    <template #form-custom> 사용자 지정 슬롯 </template>
     <template #headerTop>
       <a-alert type="info" show-icon>
         <template #message>
           <template v-if="checkedKeys.length > 0">
-            <span>已选中{{ checkedKeys.length }}条记录(可跨页)</span>
-            <a-button type="link" @click="checkedKeys = []" size="small">清空</a-button>
+            <span>선택된 {{ checkedKeys.length }}개 레코드(페이지 전체 선택 가능) </span>
+            <a-button type="link" @click="checkedKeys = []" size="small">지우기</a-button>
           </template>
           <template v-else>
-            <span>未选中任何项目</span>
+            <span>선택된 항목이 없습니다.</span>
           </template>
         </template>
       </a-alert>
     </template>
     <template #toolbar>
-      <a-button type="primary" @click="getFormValues">获取表单数据</a-button>
+      <a-button type="primary" @click="getFormValues">양식 데이터 가져오기</a-button>
     </template>
   </BasicTable>
 </template>
@@ -32,7 +32,7 @@
     setup() {
       const checkedKeys = ref<Array<string | number>>([]);
       const [registerTable, { getForm }] = useTable({
-        title: '开启搜索区域',
+        title: '사용자',
         api: demoListApi,
         columns: getBasicColumns(),
         useSearchForm: true,
