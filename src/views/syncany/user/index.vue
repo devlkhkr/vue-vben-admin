@@ -16,10 +16,6 @@
       :handle-search-info-fn="handleSearch"
       @columns-change="handleColumnChange"
     >
-      <template #form-custom></template>
-      <!-- <template #headerCell>
-        <a-input />
-      </template> -->
       <template #headerCell="{ column }">
         <div class="custom-header-cell" v-if="column.customTitle != undefined">
           {{ column.customTitle }}
@@ -35,63 +31,47 @@
         /></div>
       </template>
       <template #toolbar>
-        <a-button type="primary" @click="toggleCanResize">
-          {{ !canResize ? '테이블 접기' : '테이블 펼치기' }}
-        </a-button>
-        <a-button type="primary" @click="toggleBorder">
-          {{ !border ? '테두리 표시' : '테두리 제거' }}
-        </a-button>
-        <a-button type="primary" @click="toggleLoading"> 재로드 </a-button>
-        <a-button type="primary" @click="toggleStriped">
-          {{ !striped ? '행 구분색 켜기' : '행 구분색 끄기' }}
-        </a-button>
+        <a-button type="primary" class="my-4" @click="addUserBtnClick"> 사용자 추가 </a-button>
       </template>
     </BasicTable>
+    <component :is="userModal" v-model:visible="modalVisible" :userData="userData" />
+    <userModal @register="register" />
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, ref } from 'vue';
-  import {
-    // getUserColumn,
-    getUserData,
-    userDataTypes,
-    // getUserFormConfig,
-    tblColType,
-    setTableColumn,
-  } from './table';
-  import { BasicTable, ColumnChangeParam } from '/@/components/Table';
+  import { defineComponent, h, ref } from 'vue';
+  import { userDataTypes, tblColType, setTableColumn } from './table';
+  import { useModal } from '/@/components/Modal';
+  import { BasicTable, ColumnChangeParam, PaginationProps } from '/@/components/Table';
+  import userModal from './popup.vue';
 
   // import { useI18n } from '/@/hooks/web/useI18n';
   // const { t } = useI18n();
 
   export default defineComponent({
-    components: { BasicTable },
+    components: { BasicTable, userModal },
     setup() {
-      const canResize = ref(false);
+      const canResize = true;
       const loading = ref(false);
       const striped = ref(true);
       const border = ref(true);
-      const pagination = ref<any>(false);
-      function toggleCanResize() {
-        canResize.value = !canResize.value;
-      }
-      function toggleStriped() {
-        striped.value = !striped.value;
-      }
-      function toggleLoading() {
-        loading.value = true;
-        setTimeout(() => {
-          loading.value = false;
-          pagination.value = { pageSize: 20 };
-        }, 3000);
-      }
-      function toggleBorder() {
-        border.value = !border.value;
-      }
+      const pagination: PaginationProps = { pageSize: 10, current: 1 };
+
+      const [register, { openModal: openModal }] = useModal();
+      const modalVisible = ref<Boolean>(false);
+      const userData = ref<any>(null);
 
       function handleColumnChange(data: ColumnChangeParam[]) {
         console.log('ColumnChanged', data);
       }
+
+      function addUserBtnClick() {
+        // userData.value = { data: '', info: '' };
+        // modalVisible.value = true;
+        openModal(true, { data: 'test parm data', info: 'test parm info' });
+      }
+
+      function modUserBtnClick() {}
 
       const sampleData: userDataTypes[] = [
         {
@@ -114,42 +94,53 @@
         },
       ];
 
-      // const searchForm: Object = {
-      //   formItems: [
-      //     {
-      //       label: 'id',
-      //       prop: 'id',
-      //       type: 'input',
-      //     },
-      //     {
-      //       label: 'name',
-      //       prop: 'name',
-      //       type: 'input',
-      //     },
-      //     {
-      //       label: 'email',
-      //       prop: 'email',
-      //       type: 'input',
-      //     },
-      //     {
-      //       label: 'state',
-      //       prop: 'state',
-      //       type: 'select',
-      //       options: [
-      //         {
-      //           label: '활성',
-      //           value: 'active',
-      //         },
-      //         {
-      //           label: '비활성',
-      //           value: 'disabled',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // };
+      for (let i = 0; i < 100; i++) {
+        sampleData.push({
+          id: 'dummy',
+          name: 'dummy',
+          email: 'dummy@basicit.co.kr',
+          state: 'disabled',
+        });
+      }
 
-      const tableData = ref(getUserData(sampleData));
+      const setActionButtons = (data: userDataTypes[]) => {
+        return (() => {
+          const arr: userDataTypes[] = [];
+          data.map((user: userDataTypes, index: number) => {
+            arr.push({
+              ...user,
+              actions: h('div', { key: index }, [
+                h(
+                  'a-button',
+                  {
+                    ghost: true,
+                    color: 'success',
+                    onClick: () => {
+                      console.log(user);
+                    },
+                  },
+                  '수정',
+                ),
+                h(
+                  'a-button',
+                  {
+                    ghost: true,
+                    color: 'success',
+                    onClick: () => {
+                      console.log(user);
+                    },
+                  },
+                  '삭제',
+                ),
+              ]),
+            });
+          });
+
+          return arr;
+        })();
+      };
+
+      const tableData = ref(setActionButtons(sampleData));
       let filterdData = ref([...tableData.value]);
 
       const handleSearch = () => {
@@ -157,11 +148,33 @@
       };
 
       const searchColData = (dataIdx: string, keyword: string) => {
-        // console.log(dataIdx, keyword);
         let searchTargetData = [...tableData.value];
-        let temp = searchTargetData.filter((data) => data[dataIdx]?.toString().includes(keyword));
+        searchedKeywords.value[dataIdx] = keyword;
+        let temp = searchTargetData.filter((data) => {
+          let isMatch = true;
+          for (let key in searchedKeywords.value) {
+            if (
+              searchedKeywords.value[key] &&
+              data[key]
+                ?.toString()
+                .toLowerCase()
+                .indexOf(searchedKeywords.value[key].toLowerCase()) === -1
+            ) {
+              isMatch = false;
+              break;
+            }
+          }
+          return isMatch;
+        });
         filterdData.value = temp;
       };
+
+      const searchedKeywords = ref({
+        id: '',
+        name: '',
+        email: '',
+        state: '',
+      });
 
       const testCol: tblColType[] = [
         {
@@ -198,15 +211,18 @@
         loading,
         striped,
         border,
-        toggleStriped,
-        toggleCanResize,
-        toggleLoading,
-        toggleBorder,
         pagination,
         handleColumnChange,
-        // searchForm,
+        addUserBtnClick,
+        modUserBtnClick,
         handleSearch,
         searchColData,
+
+        register,
+        userModal,
+        openModal,
+        modalVisible,
+        userData,
       };
     },
   });

@@ -1,28 +1,30 @@
 <template>
-  <PageWrapper title="modal组件使用示例">
+  <PageWrapper title="모달 컴포넌트 사용 예시">
     <Alert
-      message="使用 useModal 进行弹窗操作，默认可以拖动，可以通过 draggable
-    参数进行控制是否可以拖动/全屏，并演示了在Modal内动态加载内容并自动调整高度"
+      message="useModal을 사용하여 모달창을 열 수 있습니다. 드래그로 이동 가능 여부는 draggable 속성으로 제어할 수 있으며 모달 내부에서 동적으로 컨텐츠를 로드하고 자동으로 높이를 조정하는 것을 보여줍니다."
       show-icon
     />
     <a-button type="primary" class="my-4" @click="openModalLoading">
-      打开弹窗,加载动态数据并自动调整高度(默认可以拖动/全屏)
+      모달 열기, 동적 데이터 로드 및 자동 높이 조정 (기본적으로 드래그 가능 / 전체 화면 가능)
     </a-button>
 
-    <Alert message="内外同时同时显示隐藏" show-icon />
-    <a-button type="primary" class="my-4" @click="openModal2"> 打开弹窗 </a-button>
-    <Alert message="自适应高度" show-icon />
-    <a-button type="primary" class="my-4" @click="openModal3"> 打开弹窗 </a-button>
+    <Alert message="내부 및 외부 동시 표시 및 숨김" show-icon />
+    <a-button type="primary" class="my-4" @click="openModal2"> 모달 열기 </a-button>
+    <Alert message="자동 높이 조정" show-icon />
+    <a-button type="primary" class="my-4" @click="openModal3"> 모달 열기 </a-button>
 
-    <Alert message="内外数据交互" show-icon />
-    <a-button type="primary" class="my-4" @click="send"> 打开弹窗并传递数据 </a-button>
+    <Alert message="내부 및 외부 데이터 교환" show-icon />
+    <a-button type="primary" class="my-4" @click="send"> 모달 열고 데이터 전달하기 </a-button>
 
-    <Alert message="使用动态组件的方式在页面内使用多个弹窗" show-icon />
+    <Alert
+      message="여러 모달창을 페이지 내에서 동적으로 사용하는 방법 (동적 컴포넌트 사용)"
+      show-icon
+    />
     <a-space>
-      <a-button type="primary" class="my-4" @click="openTargetModal(1)"> 打开弹窗1 </a-button>
-      <a-button type="primary" class="my-4" @click="openTargetModal(2)"> 打开弹窗2 </a-button>
-      <a-button type="primary" class="my-4" @click="openTargetModal(3)"> 打开弹窗3 </a-button>
-      <a-button type="primary" class="my-4" @click="openTargetModal(4)"> 打开弹窗4 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(1)"> 모달 1 열기 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(2)"> 모달 2 열기 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(3)"> 모달 3 열기 </a-button>
+      <a-button type="primary" class="my-4" @click="openTargetModal(4)"> 모달 4 열기 </a-button>
     </a-space>
 
     <component :is="currentModal" v-model:visible="modalVisible" :userData="userData" />

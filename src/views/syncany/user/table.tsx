@@ -130,10 +130,7 @@ export function getUserData(data: userDataTypes[]) {
     const arr: userDataTypes[] = [];
     data.map((user: userDataTypes, index: number) => {
       arr.push({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        state: user.state,
+        ...user,
         actions: (() => {
           return (
             <div key={index}>
@@ -141,7 +138,7 @@ export function getUserData(data: userDataTypes[]) {
                 ghost
                 color="success"
                 onClick={() => {
-                  console.log('수정이벤트');
+                  console.log(user);
                 }}
               >
                 수정
