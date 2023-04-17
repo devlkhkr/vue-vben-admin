@@ -9,13 +9,16 @@
       :loading="loading"
       :striped="striped"
       :bordered="border"
-      showTableSetting
       :form-config="formConfig"
       :pagination="pagination"
       :use-search-form="true"
       :handle-search-info-fn="handleSearch"
       @columns-change="handleColumnChange"
+      :show-table-setting="false"
     >
+      <template #toolbar>
+        <a-button type="primary" class="my-4" @click="addUserBtnClick"> 사용자 추가 </a-button>
+      </template>
       <template #headerCell="{ column }">
         <div class="custom-header-cell" v-if="column.customTitle != undefined">
           {{ column.customTitle }}
@@ -30,8 +33,13 @@
             "
         /></div>
       </template>
-      <template #toolbar>
-        <a-button type="primary" class="my-4" @click="addUserBtnClick"> 사용자 추가 </a-button>
+      <template #bodyCell="{ column }">
+        <slot name="bodyCell" v-bind="{ column }">
+          <template v-if="column.key === 'actions'">
+            <a-button :ghost="true" type="success">수정</a-button>
+            <a-button :ghost="true" type="danger" class="ml-2">삭제</a-button>
+          </template>
+        </slot>
       </template>
     </BasicTable>
     <component :is="userModal" v-model:visible="modalVisible" :userData="userData" />
@@ -39,14 +47,11 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, h, ref } from 'vue';
+  import { defineComponent, ref } from 'vue';
   import { userDataTypes, tblColType, setTableColumn } from './table';
   import { useModal } from '/@/components/Modal';
   import { BasicTable, ColumnChangeParam, PaginationProps } from '/@/components/Table';
   import userModal from './popup.vue';
-
-  // import { useI18n } from '/@/hooks/web/useI18n';
-  // const { t } = useI18n();
 
   export default defineComponent({
     components: { BasicTable, userModal },
@@ -61,17 +66,13 @@
       const modalVisible = ref<Boolean>(false);
       const userData = ref<any>(null);
 
-      function handleColumnChange(data: ColumnChangeParam[]) {
+      const handleColumnChange = (data: ColumnChangeParam[]) => {
         console.log('ColumnChanged', data);
-      }
+      };
 
-      function addUserBtnClick() {
-        // userData.value = { data: '', info: '' };
-        // modalVisible.value = true;
+      const addUserBtnClick = () => {
         openModal(true, { data: 'test parm data', info: 'test parm info' });
-      }
-
-      function modUserBtnClick() {}
+      };
 
       const sampleData: userDataTypes[] = [
         {
@@ -103,49 +104,19 @@
         });
       }
 
-      const setActionButtons = (data: userDataTypes[]) => {
-        return (() => {
-          const arr: userDataTypes[] = [];
-          data.map((user: userDataTypes, index: number) => {
-            arr.push({
-              ...user,
-              actions: h('div', { key: index }, [
-                h(
-                  'a-button',
-                  {
-                    ghost: true,
-                    color: 'success',
-                    onClick: () => {
-                      console.log(user);
-                    },
-                  },
-                  '수정',
-                ),
-                h(
-                  'a-button',
-                  {
-                    ghost: true,
-                    color: 'success',
-                    onClick: () => {
-                      console.log(user);
-                    },
-                  },
-                  '삭제',
-                ),
-              ]),
-            });
-          });
-
-          return arr;
-        })();
-      };
-
-      const tableData = ref(setActionButtons(sampleData));
+      const tableData = ref(sampleData);
       let filterdData = ref([...tableData.value]);
 
       const handleSearch = () => {
         tableData.value = [];
       };
+
+      const searchedKeywords = ref({
+        id: '',
+        name: '',
+        email: '',
+        state: '',
+      });
 
       const searchColData = (dataIdx: string, keyword: string) => {
         let searchTargetData = [...tableData.value];
@@ -168,13 +139,6 @@
         });
         filterdData.value = temp;
       };
-
-      const searchedKeywords = ref({
-        id: '',
-        name: '',
-        email: '',
-        state: '',
-      });
 
       const testCol: tblColType[] = [
         {
@@ -214,7 +178,6 @@
         pagination,
         handleColumnChange,
         addUserBtnClick,
-        modUserBtnClick,
         handleSearch,
         searchColData,
 
