@@ -36,7 +36,16 @@
       <template #bodyCell="{ column }">
         <slot name="bodyCell" v-bind="{ column }">
           <template v-if="column.key === 'actions'">
-            <a-button :ghost="true" type="success">수정</a-button>
+            <a-button
+              :ghost="true"
+              type="success"
+              @click="
+                () => {
+                  modRow(column);
+                }
+              "
+              >수정</a-button
+            >
             <a-button :ghost="true" type="danger" class="ml-2">삭제</a-button>
           </template>
         </slot>
@@ -72,6 +81,10 @@
 
       const addUserBtnClick = () => {
         openModal(true, { data: 'test parm data', info: 'test parm info' });
+      };
+
+      const modRow = (parm) => {
+        console.log(parm);
       };
 
       const sampleData: userDataTypes[] = [
@@ -186,6 +199,7 @@
         openModal,
         modalVisible,
         userData,
+        modRow,
       };
     },
   });
