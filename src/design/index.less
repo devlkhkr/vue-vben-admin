@@ -42,3 +42,57 @@ svg,
 span {
   outline: none;
 }
+
+// 커스텀
+.antdv-table-vscroll-paper() {
+  background-color: var(--header-bg-color);
+  color: var(--tw-ring-offset-color);
+}
+
+.antdv-table-vscroll {
+  .antdv-table-vscroll-search-area {
+    display: flex;
+    align-items: center;
+    padding-inline: 8px;
+    height: 48px;
+    position: sticky;
+    bottom: 0;
+    .antdv-table-vscroll-paper();
+
+    input {
+      padding: 4px 8px;
+      height: 32px;
+      border-bottom: 1px solid var(--tw-ring-offset-color);
+      .antdv-table-vscroll-paper();
+    }
+
+    button {
+      margin-left: 8px;
+      background-color: red;
+    }
+  }
+
+  .ant-table-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1;
+  }
+
+  .ant-table-pagination {
+    position: sticky;
+    bottom: 48px;
+    padding-block: 8px !important;
+    .antdv-table-vscroll-paper();
+  }
+
+  mark.antdv-table-cell-mark {
+    padding: 0;
+    background-color: chartreuse !important;
+    color: #000;
+  }
+
+  .ant-table-body {
+    height: unset !important;
+    max-height: unset !important;
+  }
+}
