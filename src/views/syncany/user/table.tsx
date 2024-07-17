@@ -26,35 +26,12 @@ export function setTableColumn(columns: tblColType[]) {
   const tblColConfig: BasicColumn[] = [];
 
   for (let i = 0; i < columns.length; i++) {
-    columns[i].search === true
-      ? tblFormConfig.schemas?.push({
-          field: columns[i].key,
-          label: columns[i].label,
-          component: columns[i].type,
-          colProps: {
-            xl: 12,
-            xxl: 8,
-          },
-        })
-      : void 0;
-
     tblColConfig.push({
       title: columns[i].label,
       dataIndex: columns[i].key,
       filterSearch: true,
-      children: [
-        {
-          dataIndex: columns[i].key,
-        },
-      ],
     });
   }
-
-  tblColConfig.push({
-    title: 'Actions',
-    dataIndex: 'actions',
-    filterSearch: true,
-  });
 
   return { tblFormConfig, tblColConfig };
 }

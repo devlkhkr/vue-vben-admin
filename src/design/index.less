@@ -44,31 +44,47 @@ span {
 }
 
 // 커스텀
-.antdv-table-vscroll-paper() {
-  background-color: var(--header-bg-color);
-  color: var(--tw-ring-offset-color);
+.antdv-table-vbrowse-paper() {
+  background-color: #333;
+  color: #fff;
 }
 
-.antdv-table-vscroll {
-  .antdv-table-vscroll-search-area {
+.antdv-table-vbrowse {
+  .antdv-table-vbrowse-search-area {
     display: flex;
     align-items: center;
     padding-inline: 8px;
-    height: 48px;
-    position: sticky;
-    bottom: 0;
-    .antdv-table-vscroll-paper();
+    position: fixed;
+    bottom: 20px;
+    border-radius: 8px;
+    transition: bottom 0.3s;
+
+    &.shake {
+      animation: horizontal-shaking 0.25s;
+    }
+
+    .antdv-table-vbrowse-paper();
 
     input {
       padding: 4px 8px;
       height: 32px;
-      border-bottom: 1px solid var(--tw-ring-offset-color);
-      .antdv-table-vscroll-paper();
+      .antdv-table-vbrowse-paper();
+
+      &:focus {
+        outline: unset;
+      }
     }
 
     button {
       margin-left: 8px;
-      background-color: red;
+      background-color: transparent;
+      cursor: pointer;
+      transition-duration: 0.3s;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -80,19 +96,54 @@ span {
 
   .ant-table-pagination {
     position: sticky;
-    bottom: 48px;
+    bottom: 0;
     padding-block: 8px !important;
-    .antdv-table-vscroll-paper();
-  }
-
-  mark.antdv-table-cell-mark {
-    padding: 0;
-    background-color: chartreuse !important;
-    color: #000;
+    .antdv-table-vbrowse-paper();
   }
 
   .ant-table-body {
     height: unset !important;
     max-height: unset !important;
+  }
+
+  .antdv-table-vbrowse-divider {
+    display: inline-block;
+    width: 1px;
+    height: 16px;
+    background-color: #666;
+    vertical-align: sub;
+    margin: 0 12px;
+  }
+
+  .antdv-table-vbrowse-search-info {
+    max-width: 0;
+    transition: opacity 0.5s, max-width 0.5s;
+    white-space: nowrap;
+  }
+
+  .ant-pagination-total-text {
+    color: #000;
+  }
+}
+
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(4px);
+  }
+
+  50% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(4px);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }

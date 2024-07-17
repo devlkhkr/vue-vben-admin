@@ -3,18 +3,17 @@
     <BasicTable
       title="사용자"
       titleHelpMessage="사용자 테이블 도움말"
-      :columns="columns"
-      :dataSource="data"
+      :columns="testCol"
+      :dataSource="MOCK_DATA"
       :canResize="canResize"
       :loading="loading"
       :striped="striped"
       :bordered="border"
-      :form-config="formConfig"
       :pagination="pagination"
       :use-search-form="true"
-      :handle-search-info-fn="handleSearch"
       @columns-change="handleColumnChange"
       :show-table-setting="false"
+      :show-index-column="false"
     >
       <template #toolbar>
         <a-button type="primary" class="my-4">엑셀 다운로드</a-button>
@@ -41,8 +40,8 @@
 </template>
 <script lang="ts" setup>
   import { ref } from 'vue';
-  import { userDataTypes, tblColType, setTableColumn } from './table';
   import { BasicTable, ColumnChangeParam, PaginationProps } from '/@/components/Table';
+  import { MOCK_DATA } from './mock';
   const canResize = true;
   const loading = ref(false);
   const striped = ref(true);
@@ -57,59 +56,26 @@
     console.log(parm);
   };
 
-  const sampleData: userDataTypes[] = [];
-
-  for (let i = 0; i < 10000; i++) {
-    sampleData.push({
-      index: `index ${i}`,
-      id: 'dummy',
-      name: 'dummy',
-      email: 'dummy@basicit.co.kr',
-      state: 'disabled',
-    });
-  }
-
-  const tableData = ref(sampleData);
-  let filterdData = ref([...tableData.value]);
-
-  const handleSearch = () => {
-    tableData.value = [];
-  };
-
-  const testCol: tblColType[] = [
+  const testCol = [
     {
-      key: 'index',
-      label: '인덱스',
-      type: 'Input',
-      search: true,
+      dataIndex: 'id',
+      label: 'id',
     },
     {
-      key: 'id',
-      label: '아이디',
-      type: 'Input',
-      search: true,
+      dataIndex: 'albumId',
+      label: 'albumId',
     },
     {
-      key: 'name',
-      label: '이름',
-      type: 'Input',
-      search: true,
+      dataIndex: 'title',
+      label: 'title',
     },
     {
-      key: 'email',
-      label: '이메일',
-      type: 'Input',
-      search: true,
+      dataIndex: 'url',
+      label: 'url',
     },
     {
-      key: 'state',
-      label: '상태',
-      type: 'Input',
-      search: true,
+      dataIndex: 'thumbnailUrl',
+      label: 'thumbnailUrl',
     },
   ];
-
-  const columns = setTableColumn(testCol).tblColConfig;
-  const data = filterdData;
-  const formConfig = setTableColumn(testCol).tblFormConfig;
 </script>

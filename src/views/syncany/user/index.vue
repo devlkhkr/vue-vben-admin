@@ -15,40 +15,10 @@
       :handle-search-info-fn="handleSearch"
       @columns-change="handleColumnChange"
       :show-table-setting="false"
+      :show-index-column="false"
     >
       <template #toolbar>
         <a-button type="primary" class="my-4" @click="addUserBtnClick"> 사용자 추가 </a-button>
-      </template>
-      <template #headerCell="{ column }">
-        <div class="custom-header-cell" v-if="column.customTitle != undefined">
-          {{ column.customTitle }}
-        </div>
-        <div class="custom-header-cell" v-else
-          ><a-input
-            :placeholder="`search ${column.dataIndex}`"
-            :onChange="
-              (event) => {
-                searchColData(column.dataIndex, event.target.value);
-              }
-            "
-        /></div>
-      </template>
-      <template #bodyCell="{ column }">
-        <slot name="bodyCell" v-bind="{ column }">
-          <template v-if="column.key === 'actions'">
-            <a-button
-              :ghost="true"
-              type="success"
-              @click="
-                () => {
-                  modRow(column);
-                }
-              "
-              >수정</a-button
-            >
-            <a-button :ghost="true" type="danger" class="ml-2">삭제</a-button>
-          </template>
-        </slot>
       </template>
     </BasicTable>
     <component :is="userModal" v-model:visible="modalVisible" :userData="userData" />
@@ -61,6 +31,7 @@
   import { useModal } from '/@/components/Modal';
   import { BasicTable, ColumnChangeParam, PaginationProps } from '/@/components/Table';
   import userModal from './popup.vue';
+  import { useRoute } from 'vue-router';
 
   export default defineComponent({
     components: { BasicTable, userModal },
@@ -75,16 +46,15 @@
       const modalVisible = ref<Boolean>(false);
       const userData = ref<any>(null);
 
+      const route = useRoute();
+      console.log(route.params.id);
+
       const handleColumnChange = (data: ColumnChangeParam[]) => {
         console.log('ColumnChanged', data);
       };
 
       const addUserBtnClick = () => {
         openModal(true, { data: 'test parm data', info: 'test parm info' });
-      };
-
-      const modRow = (parm) => {
-        console.log(parm);
       };
 
       const sampleData: userDataTypes[] = [
@@ -199,7 +169,6 @@
         openModal,
         modalVisible,
         userData,
-        modRow,
       };
     },
   });
